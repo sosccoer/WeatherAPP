@@ -8,38 +8,33 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Splash View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SplashViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GGu-0N-NZx">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4e-7f-0kh" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="JsH-zE-IKh"/>
+                                    <constraint firstAttribute="height" constant="300" id="G3S-5X-XO9"/>
+                                    <constraint firstAttribute="width" constant="300" id="bGR-C8-np3"/>
                                 </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10i-Xp-y4S">
-                                <rect key="frame" x="16" y="238" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="refresh:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CM7-ni-Bty"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="top" secondItem="GGu-0N-NZx" secondAttribute="top" id="6ZN-5H-pAs"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GGu-0N-NZx" secondAttribute="trailing" id="gbb-K3-0cA"/>
-                            <constraint firstItem="GGu-0N-NZx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pPq-2u-fv9"/>
+                            <constraint firstItem="e4e-7f-0kh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="28J-sa-8yY"/>
+                            <constraint firstItem="e4e-7f-0kh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pRO-CF-0T4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lottieAnimation" destination="e4e-7f-0kh" id="bMm-rA-jW3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
