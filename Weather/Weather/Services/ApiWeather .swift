@@ -1,23 +1,16 @@
 //
-//  ViewController.swift
+//  ApiWeather .swift
 //  Weather
 //
-//  Created by lelya.rumynin@gmail.com on 25.09.23.
+//  Created by lelya.rumynin@gmail.com on 27.09.23.
 //
 
-import UIKit
+import Foundation
 import Alamofire
 
-class MainViewController: UIViewController {
+class ApiWeather {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        makeCurrentWeather()
-        
-    }
-    
-    private let baseURL = "weatherapi- com.p.rapidapi.com"
+    private let baseURL = "weatherapi-com.p.rapidapi.com"
     private let APIKey = "7ce6d3fdd1msh9f459f298adcf7dp102dc3jsn4f05a45ca743"
     
     func makeCurrentWeather () {
@@ -57,7 +50,7 @@ class MainViewController: UIViewController {
                 return
             }
             
-            print("WeatherApiWorker: \(responseModel)")
+            print("WeatherApiWorker Sucesfull: \(responseModel)")
             
         }
         
@@ -75,13 +68,8 @@ class MainViewController: UIViewController {
         
     }
     
-    @IBAction func refresh(_ sender: Any) {
-        makeCurrentWeather()
-    }
-    
     enum WeatherRequestPath: String {
         case currentWeather = "/current.json"
     }
     
 }
-

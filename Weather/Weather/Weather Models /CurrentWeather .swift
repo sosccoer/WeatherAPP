@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct CurrentWeather {
-    let lastUpdated: UInt64
+struct CurrentWeather: Codable {
+    let lastUpdateTimestamp: UInt64
     let lastUpdateTimeFormatted: String
     let temperatureInCelsius: Double
     let temperatureInFahrenheit: Double
     let condition: WeatherCondiation
     let windInMilesPerHour: Double
-    let windInKilometersPerHour: Double
-    let windInDegrees: Int
+    let windInKilometerPerHour: Double
+    let windInDegree: Int
     let windDirection: String
     let pressureInMilliBars: Double
     let pressureInInches: Double
@@ -70,15 +70,14 @@ struct WeatherCondiation: Codable {
     
     let weatherText: String
     let photoOfWeather: String
-    let codeOfWeather: Int
+    let codeOfWeather: Double
     
-    enum CodingKeyss: String,CodingKey,Codable {
+    enum CodingKeys: String,CodingKey {
         
         case weatherText =    "text"
         case photoOfWeather = "icon"
         case codeOfWeather =  "code"
         
     }
-    
     
 }

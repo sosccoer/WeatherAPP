@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeatherLocation {
+struct WeatherLocation: Codable {
     
     let cityName: String
     let region: String
