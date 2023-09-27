@@ -10,6 +10,8 @@ import Alamofire
 
 class ApiWeather {
     
+    public var delegate: WeatherAPIDelegate?
+    
     private let baseURL = "weatherapi-com.p.rapidapi.com"
     private let APIKey = "7ce6d3fdd1msh9f459f298adcf7dp102dc3jsn4f05a45ca743"
     
