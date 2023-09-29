@@ -10,8 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Weather" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="tcb-03-L09" id="GyL-aY-Xrr"/>
+                <outlet property="tableView" destination="K57-s0-pyr" id="eLf-3T-5bx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weatherImage" destination="zoT-9J-T1M" id="LbJ-JT-4cO"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -25,25 +26,18 @@
                         <constraint firstAttribute="height" constant="200" id="vkN-29-BD5"/>
                     </constraints>
                 </imageView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="tcb-03-L09">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="K57-s0-pyr">
                     <rect key="frame" x="0.0" y="200" width="393" height="618"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XG0-MS-wBb">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tcb-03-L09" secondAttribute="bottom" id="27Z-vo-XJM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zoT-9J-T1M" secondAttribute="trailing" id="6UR-BD-SQi"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tcb-03-L09" secondAttribute="trailing" id="Pq9-zL-h1f"/>
-                <constraint firstItem="tcb-03-L09" firstAttribute="top" secondItem="zoT-9J-T1M" secondAttribute="bottom" id="bcN-cd-kZx"/>
-                <constraint firstItem="tcb-03-L09" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qxq-ji-wae"/>
+                <constraint firstItem="K57-s0-pyr" firstAttribute="top" secondItem="zoT-9J-T1M" secondAttribute="bottom" id="9yj-is-UHx"/>
+                <constraint firstItem="K57-s0-pyr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FfW-Dk-dwF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K57-s0-pyr" secondAttribute="trailing" id="ags-b2-fJ2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="K57-s0-pyr" secondAttribute="bottom" id="lVS-16-SNV"/>
                 <constraint firstItem="zoT-9J-T1M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xfR-xa-mdz"/>
                 <constraint firstItem="zoT-9J-T1M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yB7-Mh-Isc"/>
             </constraints>
