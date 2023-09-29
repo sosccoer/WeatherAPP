@@ -58,7 +58,7 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.row == 0 {
-            return 80.0 // Высота для первой ячейки
+            return 120.0 // Высота для первой ячейки
         } else if indexPath.row == 1 {
             return 120.0 // Высота для второй ячейки
         } else {
