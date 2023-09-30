@@ -19,6 +19,11 @@
 		7D38CDD22AC710BC00EB10A0 /* WeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D38CDD02AC710BC00EB10A0 /* WeatherTableViewCell.xib */; };
 		7D38CDD52AC7751100EB10A0 /* CelsiumAndHoursCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38CDD32AC7751100EB10A0 /* CelsiumAndHoursCollectionViewCell.swift */; };
 		7D38CDD62AC7751100EB10A0 /* CelsiumAndHoursCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D38CDD42AC7751100EB10A0 /* CelsiumAndHoursCollectionViewCell.xib */; };
+		7D38CDE12AC8866500EB10A0 /* SquaresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38CDDF2AC8866500EB10A0 /* SquaresTableViewCell.swift */; };
+		7D38CDE22AC8866500EB10A0 /* SquaresTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D38CDE02AC8866500EB10A0 /* SquaresTableViewCell.xib */; };
+		7D38CDE52AC88C8100EB10A0 /* ForSquareTableViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38CDE32AC88C8100EB10A0 /* ForSquareTableViewCollectionViewCell.swift */; };
+		7D38CDE62AC88C8100EB10A0 /* ForSquareTableViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D38CDE42AC88C8100EB10A0 /* ForSquareTableViewCollectionViewCell.xib */; };
+		7D38CDE92AC88E5A00EB10A0 /* MainTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38CDE82AC88E5A00EB10A0 /* MainTableViewModel.swift */; };
 		7DB4CE202AC1D079001EBBC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4CE1F2AC1D079001EBBC9 /* AppDelegate.swift */; };
 		7DB4CE222AC1D079001EBBC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4CE212AC1D079001EBBC9 /* SceneDelegate.swift */; };
 		7DB4CE242AC1D079001EBBC9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4CE232AC1D079001EBBC9 /* SplashViewController.swift */; };
@@ -41,6 +46,11 @@
 		7D38CDD02AC710BC00EB10A0 /* WeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherTableViewCell.xib; sourceTree = "<group>"; };
 		7D38CDD32AC7751100EB10A0 /* CelsiumAndHoursCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelsiumAndHoursCollectionViewCell.swift; sourceTree = "<group>"; };
 		7D38CDD42AC7751100EB10A0 /* CelsiumAndHoursCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CelsiumAndHoursCollectionViewCell.xib; sourceTree = "<group>"; };
+		7D38CDDF2AC8866500EB10A0 /* SquaresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquaresTableViewCell.swift; sourceTree = "<group>"; };
+		7D38CDE02AC8866500EB10A0 /* SquaresTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquaresTableViewCell.xib; sourceTree = "<group>"; };
+		7D38CDE32AC88C8100EB10A0 /* ForSquareTableViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForSquareTableViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		7D38CDE42AC88C8100EB10A0 /* ForSquareTableViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForSquareTableViewCollectionViewCell.xib; sourceTree = "<group>"; };
+		7D38CDE82AC88E5A00EB10A0 /* MainTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewModel.swift; sourceTree = "<group>"; };
 		7DB4CE1C2AC1D079001EBBC9 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB4CE1F2AC1D079001EBBC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DB4CE212AC1D079001EBBC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,8 +110,20 @@
 				7D38CDD02AC710BC00EB10A0 /* WeatherTableViewCell.xib */,
 				7D38CDD32AC7751100EB10A0 /* CelsiumAndHoursCollectionViewCell.swift */,
 				7D38CDD42AC7751100EB10A0 /* CelsiumAndHoursCollectionViewCell.xib */,
+				7D38CDE32AC88C8100EB10A0 /* ForSquareTableViewCollectionViewCell.swift */,
+				7D38CDE42AC88C8100EB10A0 /* ForSquareTableViewCollectionViewCell.xib */,
+				7D38CDDF2AC8866500EB10A0 /* SquaresTableViewCell.swift */,
+				7D38CDE02AC8866500EB10A0 /* SquaresTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		7D38CDE72AC88E3400EB10A0 /* ModelsForCells  */ = {
+			isa = PBXGroup;
+			children = (
+				7D38CDE82AC88E5A00EB10A0 /* MainTableViewModel.swift */,
+			);
+			path = "ModelsForCells ";
 			sourceTree = "<group>";
 		};
 		7DB4CE132AC1D078001EBBC9 = {
@@ -123,6 +145,7 @@
 		7DB4CE1E2AC1D079001EBBC9 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				7D38CDE72AC88E3400EB10A0 /* ModelsForCells  */,
 				7D38CDA32AC4D0ED00EB10A0 /* Cells */,
 				7D38CD9E2AC4A95400EB10A0 /* Xib of ViewControllers  */,
 				7D38CD9D2AC4A94100EB10A0 /* ViewControllers */,
@@ -233,6 +256,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D38CDD62AC7751100EB10A0 /* CelsiumAndHoursCollectionViewCell.xib in Resources */,
+				7D38CDE62AC88C8100EB10A0 /* ForSquareTableViewCollectionViewCell.xib in Resources */,
+				7D38CDE22AC8866500EB10A0 /* SquaresTableViewCell.xib in Resources */,
 				7D38CD982AC494A100EB10A0 /* Weather.json in Resources */,
 				7DB4CE2C2AC1D07A001EBBC9 /* LaunchScreen.storyboard in Resources */,
 				7D38CD9C2AC4951900EB10A0 /* MainViewController.xib in Resources */,
@@ -250,8 +275,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DB4CE242AC1D079001EBBC9 /* SplashViewController.swift in Sources */,
+				7D38CDE52AC88C8100EB10A0 /* ForSquareTableViewCollectionViewCell.swift in Sources */,
 				7DB4CE392AC3130E001EBBC9 /* extensionForBool+Int.swift in Sources */,
 				7D38CDD12AC710BC00EB10A0 /* WeatherTableViewCell.swift in Sources */,
+				7D38CDE92AC88E5A00EB10A0 /* MainTableViewModel.swift in Sources */,
+				7D38CDE12AC8866500EB10A0 /* SquaresTableViewCell.swift in Sources */,
 				7DB4CE202AC1D079001EBBC9 /* AppDelegate.swift in Sources */,
 				7D38CD902AC42A3300EB10A0 /* RealTimeWeatherRespons.swift in Sources */,
 				7D38CDA22AC4AFFC00EB10A0 /* WeatherAPIDelegate.swift in Sources */,

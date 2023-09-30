@@ -17,6 +17,13 @@ class MainViewController: UIViewController {
     
     var lastRespons: RealTimeWeatherRespons?
     
+    private let cells: [TypeOfMainTableViewCell] = [
+        
+        TypeOfMainTableViewCell(type: .WeatherTableViewCell),
+        TypeOfMainTableViewCell(type: .SquaresTableViewCell)
+        
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,20 +46,34 @@ class MainViewController: UIViewController {
         let nibName = UINib(nibName: "WeatherTableViewCell", bundle: Bundle.main)
         tableView.register(nibName, forCellReuseIdentifier: "WeatherTableViewCell")
         
+        let nibOfSquareCells = UINib(nibName: "SquaresTableViewCell", bundle: Bundle.main)
+        tableView.register(nibOfSquareCells, forCellReuseIdentifier: "SquaresTableViewCell")
+        
     }
-      
+    
 }
 
 extension MainViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        cells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as? WeatherTableViewCell else {return UITableViewCell()}
+        let index = indexPath.row
         
-        return cell
+        switch cells[index].type {
+            
+        case .SquaresTableViewCell : guard let cell = tableView.dequeueReusableCell(withIdentifier: "SquaresTableViewCell") as? SquaresTableViewCell else {return UITableViewCell()}
+            
+            return cell
+            
+        case .WeatherTableViewCell :  guard let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as? WeatherTableViewCell else {return UITableViewCell()}
+            
+            return cell
+            
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -60,13 +81,13 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource {
         if indexPath.row == 0 {
             return 120.0 // Высота для первой ячейки
         } else if indexPath.row == 1 {
-            return 120.0 // Высота для второй ячейки
+            return 600 // Высота для второй ячейки
         } else {
             return 60.0 // Высота для остальных ячеек
         }
         
     }
-  
+    
 }
 
 extension MainViewController: WeatherAPIDelegate {

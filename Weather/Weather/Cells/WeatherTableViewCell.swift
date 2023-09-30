@@ -22,15 +22,20 @@ class WeatherTableViewCell: UITableViewCell {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.showsHorizontalScrollIndicator = false 
-        registerCell()
+        collectionView.showsHorizontalScrollIndicator = false
+        registerCells()
         
     }
     
-    func registerCell () {
+    func registerCells () {
         
-        let UINib = UINib(nibName: "CelsiumAndHoursCollectionViewCell", bundle: Bundle.main)
-        collectionView.register(UINib, forCellWithReuseIdentifier: "CelsiumAndHoursCollectionViewCell")
+        let nibCelsiumAndHours = UINib(nibName: "CelsiumAndHoursCollectionViewCell", bundle: Bundle.main)
+        collectionView.register(nibCelsiumAndHours, forCellWithReuseIdentifier: "CelsiumAndHoursCollectionViewCell")
+        
+        let nibForSquares = UINib(nibName: "SquaresTableViewCell", bundle: Bundle.main)
+        collectionView.register(nibForSquares, forCellWithReuseIdentifier: "SquaresTableViewCell")
+        
+        
         
     }
     
@@ -57,7 +62,20 @@ extension WeatherTableViewCell: UICollectionViewDelegate,UICollectionViewDataSou
 
 extension WeatherTableViewCell:UICollectionViewDelegateFlowLayout {
     
+    
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if indexPath.row == 0 {
+            
+            return CGSize(width: 50, height: 1110)
+            
+        }
+        
+        
+        
         // Задайте размер ячейки для конкретного элемента в IndexPath
         return CGSize(width: 50, height: 110) // Пример размера ячейки
     }

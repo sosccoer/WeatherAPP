@@ -7,6 +7,19 @@
 
 import Foundation
 
+// feels like
+//humidity - влажноть
+// visible
+// speed of wind and degree
+// preasure
+//precipitation осадки миллиметры
+// ультрафиолетновый инну декс
+
+
+
+
+
+
 struct CurrentWeather: Codable {
     let lastUpdateTimestamp: UInt64
     let lastUpdateTimeFormatted: String
