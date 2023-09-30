@@ -9,87 +9,105 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var weatherImage: UIImageView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var weatherImage: UIImageView!
     
     private let apiWeather = ApiWeather()
     
     var lastRespons: RealTimeWeatherRespons?
     
-    private let cells: [TypeOfMainTableViewCell] = [
+    private let cells: [MainCollectionViewModel] = [
         
-        TypeOfMainTableViewCell(type: .WeatherTableViewCell),
-        TypeOfMainTableViewCell(type: .SquaresTableViewCell)
+        MainCollectionViewModel(type: .CelsiumAndHoursCollectionViewCell),
+        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
+        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
+        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
+        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
+        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
+        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell)
         
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        collectionView.backgroundColor = UIColor.clear
+        view.backgroundColor = UIColor(red: 135/255.0, green: 206/255.0, blue: 250/255.0, alpha: 1.0)
         apiWeather.delegate = self
-        
-        setupTableView()
-        
+        setupCollectionView ()
     }
     
-    func setupTableView() {
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        registerTableViewCells()
-        
+    private func setupCollectionView () {
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        registerCells()
     }
     
-    func registerTableViewCells () {
+    private func registerCells (){
         
-        let nibName = UINib(nibName: "WeatherTableViewCell", bundle: Bundle.main)
-        tableView.register(nibName, forCellReuseIdentifier: "WeatherTableViewCell")
+        let Hoursnib = UINib(nibName: "ForHoursAndCelsiumCellsCollectionViewCell", bundle: Bundle.main)
+        collectionView.register(Hoursnib, forCellWithReuseIdentifier: "ForHoursAndCelsiumCellsCollectionViewCell")
         
-        let nibOfSquareCells = UINib(nibName: "SquaresTableViewCell", bundle: Bundle.main)
-        tableView.register(nibOfSquareCells, forCellReuseIdentifier: "SquaresTableViewCell")
+        let squareNib = UINib(nibName: "ForSquareTableViewCollectionViewCell", bundle: Bundle.main)
+        collectionView.register(squareNib, forCellWithReuseIdentifier: "ForSquareTableViewCollectionViewCell")
         
     }
     
 }
 
-extension MainViewController: UITableViewDelegate,UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cells.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let index = indexPath.row
         
+        
         switch cells[index].type {
             
-        case .SquaresTableViewCell : guard let cell = tableView.dequeueReusableCell(withIdentifier: "SquaresTableViewCell") as? SquaresTableViewCell else {return UITableViewCell()}
+        case .CelsiumAndHoursCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ForHoursAndCelsiumCellsCollectionViewCell", for: indexPath) as? ForHoursAndCelsiumCellsCollectionViewCell else {return UICollectionViewCell()}
             
             return cell
             
-        case .WeatherTableViewCell :  guard let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as? WeatherTableViewCell else {return UITableViewCell()}
+        case .ForSquareTableViewCollectionViewCell: guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ForSquareTableViewCollectionViewCell", for: indexPath) as? ForSquareTableViewCollectionViewCell else {return UICollectionViewCell()}
             
             return cell
             
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if indexPath.row == 0 {
-            return 120.0 // Высота для первой ячейки
-        } else if indexPath.row == 1 {
-            return 600 // Высота для второй ячейки
-        } else {
-            return 60.0 // Высота для остальных ячеек
         }
         
     }
     
 }
 
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        switch indexPath.row {
+            
+        case 0 : return CGSize(width: 390, height: 110)
+            
+        case 1 ... 5 : return CGSize(width: 190, height: 190)
+            
+        default: return CGSize(width: 0, height: 0)
+        }
+             
+        }
+        
+     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 3 // Задайте ваше кастомное расстояние между ячейками
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5 // Здесь вы можете задать ваше кастомное вертикальное расстояние между строками (ячейками)
+    }
+
+    }
+    
 extension MainViewController: WeatherAPIDelegate {
     
     func gotRealTimeWeather(respons: RealTimeWeatherRespons) {
@@ -106,9 +124,3 @@ extension MainViewController: WeatherAPIDelegate {
     }
     
 }
-
-
-
-
-
-

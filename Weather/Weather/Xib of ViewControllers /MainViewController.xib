@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -10,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Weather" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="K57-s0-pyr" id="eLf-3T-5bx"/>
+                <outlet property="collectionView" destination="W1h-ep-Etq" id="rbO-i2-mkO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weatherImage" destination="zoT-9J-T1M" id="LbJ-JT-4cO"/>
             </connections>
@@ -26,18 +27,25 @@
                         <constraint firstAttribute="height" constant="200" id="vkN-29-BD5"/>
                     </constraints>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="K57-s0-pyr">
-                    <rect key="frame" x="0.0" y="200" width="393" height="618"/>
-                </tableView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="W1h-ep-Etq">
+                    <rect key="frame" x="3" y="200" width="387" height="618"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kO6-zl-MB2">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zoT-9J-T1M" secondAttribute="trailing" id="6UR-BD-SQi"/>
-                <constraint firstItem="K57-s0-pyr" firstAttribute="top" secondItem="zoT-9J-T1M" secondAttribute="bottom" id="9yj-is-UHx"/>
-                <constraint firstItem="K57-s0-pyr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FfW-Dk-dwF"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K57-s0-pyr" secondAttribute="trailing" id="ags-b2-fJ2"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="K57-s0-pyr" secondAttribute="bottom" id="lVS-16-SNV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="W1h-ep-Etq" secondAttribute="bottom" id="6nf-l6-Bao"/>
+                <constraint firstItem="W1h-ep-Etq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="3" id="Rtx-Um-gM6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="W1h-ep-Etq" secondAttribute="trailing" constant="3" id="r2z-IX-IDi"/>
+                <constraint firstItem="W1h-ep-Etq" firstAttribute="top" secondItem="zoT-9J-T1M" secondAttribute="bottom" id="tyD-Dj-n2Q"/>
                 <constraint firstItem="zoT-9J-T1M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xfR-xa-mdz"/>
                 <constraint firstItem="zoT-9J-T1M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yB7-Mh-Isc"/>
             </constraints>
