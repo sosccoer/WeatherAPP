@@ -17,6 +17,8 @@ class MainViewController: UIViewController {
     
     var lastRespons: RealTimeWeatherRespons?
     
+    let refreshControl = UIRefreshControl()
+    
     private let cells: [MainCollectionViewModel] = [
         
         MainCollectionViewModel(type: .CelsiumAndHoursCollectionViewCell),
@@ -41,7 +43,18 @@ class MainViewController: UIViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        collectionView.addSubview(refreshControl)
+        
         registerCells()
+    }
+    
+    @objc private func refreshData() {
+        
+//        ApiWeather.makeCurrentWeather()
+        refreshControl.endRefreshing()
+       
     }
     
     private func registerCells (){
