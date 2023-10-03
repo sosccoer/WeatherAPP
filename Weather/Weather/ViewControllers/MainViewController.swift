@@ -66,6 +66,13 @@ class MainViewController: UIViewController {
         
     }
     
+    @objc func buttonTapped(_ sender: UIButton) {
+        
+        let destination = SettingsViewController()
+        present(destination,animated: true)
+        
+    }
+    
     private func registerCells (){
         
         let Hoursnib = UINib(nibName: "ForHoursAndCelsiumCellsCollectionViewCell", bundle: Bundle.main)
@@ -92,10 +99,12 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         let index = indexPath.row
         
         let transparentColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.075)
-
+        
         switch cells[index].type {
             
         case .CityAndTemperatureCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityAndTemperatureCollectionViewCell", for: indexPath) as? CityAndTemperatureCollectionViewCell else {return UICollectionViewCell()}
+            
+            cell.settingButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
             
             return cell
             
@@ -109,7 +118,7 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             
             cell.layer.cornerRadius = 30
             cell.backgroundColor = transparentColor
-
+            
             return cell
             
         }

@@ -32,6 +32,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qu-t9-qur">
+                                <rect key="frame" x="328" y="26.000000000000004" width="51" height="34.333333333333343"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="presentSettingViewController:" destination="gTV-IL-0wX" eventType="touchUpInside" id="JPN-ea-R8y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="R24-7p-OA4" firstAttribute="centerX" secondItem="joE-is-0Fo" secondAttribute="centerX" id="4r6-AC-8WE"/>
@@ -39,7 +49,9 @@
                             <constraint firstItem="BXB-11-f8K" firstAttribute="top" secondItem="R24-7p-OA4" secondAttribute="bottom" constant="16" id="FGU-EI-byN"/>
                             <constraint firstAttribute="width" constant="387" id="cE9-9P-PbI"/>
                             <constraint firstItem="BXB-11-f8K" firstAttribute="centerX" secondItem="joE-is-0Fo" secondAttribute="centerX" id="g9E-mZ-PWp"/>
+                            <constraint firstAttribute="trailing" secondItem="1qu-t9-qur" secondAttribute="trailing" constant="8" id="kME-ZU-S9e"/>
                             <constraint firstAttribute="height" constant="200" id="lNw-3f-1w7"/>
+                            <constraint firstItem="1qu-t9-qur" firstAttribute="top" secondItem="R24-7p-OA4" secondAttribute="top" id="lfb-Er-UlJ"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -50,7 +62,13 @@
                 <constraint firstItem="joE-is-0Fo" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="ed5-f9-W2v"/>
             </constraints>
             <size key="customSize" width="524" height="298"/>
+            <connections>
+                <outlet property="settingButton" destination="1qu-t9-qur" id="zYz-0P-V4A"/>
+            </connections>
             <point key="canvasLocation" x="500.76335877862596" y="56.338028169014088"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
+    </resources>
 </document>
