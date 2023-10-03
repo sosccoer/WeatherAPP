@@ -15,7 +15,7 @@ struct MainCollectionViewModel {
         
         case ForSquareTableViewCollectionViewCell
         case CelsiumAndHoursCollectionViewCell
-        
+        case ImageAboutWeatherCollectionViewCell
     }
     
     

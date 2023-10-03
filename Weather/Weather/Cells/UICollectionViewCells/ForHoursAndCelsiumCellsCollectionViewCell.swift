@@ -19,6 +19,8 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
     private func setupCollectionView () {
         
         collectionView.backgroundColor = UIColor.clear
+//        collectionView.backgroundColor = .black
+//        collectionView.alpha = 0.05
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
@@ -57,7 +59,7 @@ extension ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewDelegateFlo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1 // Задайте ваше кастомное расстояние между ячейками
+        return 7 // Задайте ваше кастомное расстояние между ячейками
     }
     
 }

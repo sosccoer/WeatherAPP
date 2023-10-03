@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
     
     private let cells: [MainCollectionViewModel] = [
         
+        MainCollectionViewModel(type: .ImageAboutWeatherCollectionViewCell),
         MainCollectionViewModel(type: .CelsiumAndHoursCollectionViewCell),
         MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
         MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
@@ -33,13 +34,20 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = UIColor.clear
-        view.backgroundColor = UIColor(red: 135/255.0, green: 206/255.0, blue: 250/255.0, alpha: 1.0)
+        
+        setupMainView()
         apiWeather.delegate = self
         setupCollectionView ()
     }
     
+    private func setupMainView () {
+        
+        view.backgroundColor = UIColor(red: 135/255.0, green: 206/255.0, blue: 250/255.0, alpha: 1.0)
+        
+    }
+    
     private func setupCollectionView () {
+        collectionView.backgroundColor = UIColor.clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -52,9 +60,9 @@ class MainViewController: UIViewController {
     
     @objc private func refreshData() {
         
-//        ApiWeather.makeCurrentWeather()
+        apiWeather.makeCurrentWeather()
         refreshControl.endRefreshing()
-       
+        
     }
     
     private func registerCells (){
@@ -64,6 +72,9 @@ class MainViewController: UIViewController {
         
         let squareNib = UINib(nibName: "ForSquareTableViewCollectionViewCell", bundle: Bundle.main)
         collectionView.register(squareNib, forCellWithReuseIdentifier: "ForSquareTableViewCollectionViewCell")
+        
+        let photoNib = UINib(nibName: "ImageAboutWeatherCollectionViewCell", bundle: Bundle.main)
+        collectionView.register(photoNib, forCellWithReuseIdentifier: "ImageAboutWeatherCollectionViewCell")
         
     }
     
@@ -79,14 +90,28 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         
         let index = indexPath.row
         
+        let transparentColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.05)
+
+        
         
         switch cells[index].type {
             
+        case .ImageAboutWeatherCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageAboutWeatherCollectionViewCell", for: indexPath) as? ImageAboutWeatherCollectionViewCell else {return UICollectionViewCell()}
+            
+            return cell
+            
         case .CelsiumAndHoursCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ForHoursAndCelsiumCellsCollectionViewCell", for: indexPath) as? ForHoursAndCelsiumCellsCollectionViewCell else {return UICollectionViewCell()}
+            cell.layer.cornerRadius = 20
+            cell.backgroundColor = transparentColor
+            
             
             return cell
             
         case .ForSquareTableViewCollectionViewCell: guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ForSquareTableViewCollectionViewCell", for: indexPath) as? ForSquareTableViewCollectionViewCell else {return UICollectionViewCell()}
+            
+            cell.layer.cornerRadius = 30
+            cell.backgroundColor = transparentColor
+
             
             return cell
             
@@ -102,25 +127,27 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         
         switch indexPath.row {
             
-        case 0 : return CGSize(width: 390, height: 110)
+        case 0 : return CGSize(width: 387, height: 200)
             
-        case 1 ... 5 : return CGSize(width: 190, height: 190)
+        case 1 : return CGSize(width: 390, height: 110)
+            
+        case 2 ... 7 : return CGSize(width: 190, height: 190)
             
         default: return CGSize(width: 0, height: 0)
         }
-             
-        }
         
-     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 3 // Задайте ваше кастомное расстояние между ячейками
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5 // Здесь вы можете задать ваше кастомное вертикальное расстояние между строками (ячейками)
     }
-
-    }
     
+}
+
 extension MainViewController: WeatherAPIDelegate {
     
     func gotRealTimeWeather(respons: RealTimeWeatherRespons) {

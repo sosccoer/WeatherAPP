@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Weather" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="Weather" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="W1h-ep-Etq" id="rbO-i2-mkO"/>
+                <outlet property="tableView" destination="XKQ-1n-XCa" id="ukz-GX-Kh6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,26 +20,20 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="W1h-ep-Etq">
-                    <rect key="frame" x="3" y="0.0" width="387" height="818"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XKQ-1n-XCa">
+                    <rect key="frame" x="3" y="75" width="387" height="727"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kO6-zl-MB2">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="W1h-ep-Etq" secondAttribute="bottom" id="6nf-l6-Bao"/>
-                <constraint firstItem="W1h-ep-Etq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HKX-V9-dVe"/>
-                <constraint firstItem="W1h-ep-Etq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="3" id="Rtx-Um-gM6"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="W1h-ep-Etq" secondAttribute="trailing" constant="3" id="r2z-IX-IDi"/>
+                <constraint firstItem="XKQ-1n-XCa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="85T-TQ-WQH"/>
+                <constraint firstItem="XKQ-1n-XCa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="3" id="ZEE-fx-uCi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XKQ-1n-XCa" secondAttribute="trailing" constant="3" id="cX5-mm-2lm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XKQ-1n-XCa" secondAttribute="bottom" constant="16" id="jCI-QL-Gat"/>
             </constraints>
-            <point key="canvasLocation" x="-47" y="21"/>
+            <point key="canvasLocation" x="-31" y="20"/>
         </view>
     </objects>
     <resources>
