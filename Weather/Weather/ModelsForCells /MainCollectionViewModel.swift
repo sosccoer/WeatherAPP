@@ -6,16 +6,21 @@
 //
 
 import Foundation
+import UIKit
 
 struct MainCollectionViewModel {
     
     let type: TypeOfMainCollectionView
+//    let nameOfSetting: String?
+//    let value: String?
+//    let imageAboutWeather: UIImage?
     
     enum TypeOfMainCollectionView {
         
         case ForSquareTableViewCollectionViewCell
         case CelsiumAndHoursCollectionViewCell
         case ImageAboutWeatherCollectionViewCell
+        
     }
     
     
