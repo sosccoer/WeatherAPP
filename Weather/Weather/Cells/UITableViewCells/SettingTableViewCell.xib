@@ -24,10 +24,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DdS-jO-hrW">
-                        <rect key="frame" x="173" y="6.6666666666666679" width="131" height="32"/>
+                        <rect key="frame" x="267" y="6.6666666666666679" width="37" height="32"/>
                         <segments>
-                            <segment title="First"/>
-                            <segment title="Second"/>
+                            <segment title=""/>
+                            <segment title=""/>
                         </segments>
                     </segmentedControl>
                 </subviews>
