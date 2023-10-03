@@ -124,11 +124,11 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         
         switch indexPath.row {
             
-        case 0 : return CGSize(width: 387, height: 200)
+        case 0 : return CGSize(width: 377, height: 200)
             
-        case 1 : return CGSize(width: 390, height: 110)
+        case 1 : return CGSize(width: 377, height: 110)
             
-        case 2 ... 7 : return CGSize(width: 190, height: 190)
+        case 2 ... 7 : return CGSize(width: 186, height: 186)
             
         default: return CGSize(width: 0, height: 0)
             

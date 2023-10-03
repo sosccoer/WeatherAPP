@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="W1h-ep-Etq">
-                    <rect key="frame" x="3" y="0.0" width="387" height="818"/>
+                    <rect key="frame" x="8" y="0.0" width="377" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kO6-zl-MB2">
                         <size key="itemSize" width="128" height="128"/>
@@ -36,8 +36,8 @@
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="W1h-ep-Etq" secondAttribute="bottom" id="6nf-l6-Bao"/>
                 <constraint firstItem="W1h-ep-Etq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HKX-V9-dVe"/>
-                <constraint firstItem="W1h-ep-Etq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="3" id="Rtx-Um-gM6"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="W1h-ep-Etq" secondAttribute="trailing" constant="3" id="r2z-IX-IDi"/>
+                <constraint firstItem="W1h-ep-Etq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Rtx-Um-gM6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="W1h-ep-Etq" secondAttribute="trailing" constant="8" id="r2z-IX-IDi"/>
             </constraints>
             <point key="canvasLocation" x="-47" y="21"/>
         </view>
