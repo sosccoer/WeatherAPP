@@ -11,6 +11,12 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    let cells: [TypeOfTableViewCell] = [
+    
+        TypeOfTableViewCell(type: .SettingTableViewCell, nameOfSetting: "", nameOfValues: ["",""])
+    
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

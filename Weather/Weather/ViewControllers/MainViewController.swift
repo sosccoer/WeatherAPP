@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
     
     private let cells: [MainCollectionViewModel] = [
         
-        MainCollectionViewModel(type: .ImageAboutWeatherCollectionViewCell),
+        MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell),
         MainCollectionViewModel(type: .CelsiumAndHoursCollectionViewCell),
         MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
         MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
@@ -74,8 +74,8 @@ class MainViewController: UIViewController {
         let squareNib = UINib(nibName: "ForSquareTableViewCollectionViewCell", bundle: Bundle.main)
         collectionView.register(squareNib, forCellWithReuseIdentifier: "ForSquareTableViewCollectionViewCell")
         
-        let photoNib = UINib(nibName: "ImageAboutWeatherCollectionViewCell", bundle: Bundle.main)
-        collectionView.register(photoNib, forCellWithReuseIdentifier: "ImageAboutWeatherCollectionViewCell")
+        let cityNib = UINib(nibName: "CityAndTemperatureCollectionViewCell", bundle: Bundle.main)
+        collectionView.register(cityNib, forCellWithReuseIdentifier: "CityAndTemperatureCollectionViewCell")
         
     }
     
@@ -95,7 +95,7 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
 
         switch cells[index].type {
             
-        case .ImageAboutWeatherCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageAboutWeatherCollectionViewCell", for: indexPath) as? ImageAboutWeatherCollectionViewCell else {return UICollectionViewCell()}
+        case .CityAndTemperatureCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityAndTemperatureCollectionViewCell", for: indexPath) as? CityAndTemperatureCollectionViewCell else {return UICollectionViewCell()}
             
             return cell
             

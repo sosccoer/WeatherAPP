@@ -19,7 +19,7 @@ struct MainCollectionViewModel {
         
         case ForSquareTableViewCollectionViewCell
         case CelsiumAndHoursCollectionViewCell
-        case ImageAboutWeatherCollectionViewCell
+        case CityAndTemperatureCollectionViewCell
         
     }
     
