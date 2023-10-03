@@ -34,10 +34,11 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        apiWeather.makeCurrentWeather()
         setupMainView()
         apiWeather.delegate = self
         setupCollectionView ()
+        
     }
     
     private func setupMainView () {
@@ -90,10 +91,8 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         
         let index = indexPath.row
         
-        let transparentColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.05)
+        let transparentColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.075)
 
-        
-        
         switch cells[index].type {
             
         case .ImageAboutWeatherCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageAboutWeatherCollectionViewCell", for: indexPath) as? ImageAboutWeatherCollectionViewCell else {return UICollectionViewCell()}
@@ -104,7 +103,6 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             cell.layer.cornerRadius = 20
             cell.backgroundColor = transparentColor
             
-            
             return cell
             
         case .ForSquareTableViewCollectionViewCell: guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ForSquareTableViewCollectionViewCell", for: indexPath) as? ForSquareTableViewCollectionViewCell else {return UICollectionViewCell()}
@@ -112,7 +110,6 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             cell.layer.cornerRadius = 30
             cell.backgroundColor = transparentColor
 
-            
             return cell
             
         }
@@ -134,12 +131,13 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         case 2 ... 7 : return CGSize(width: 190, height: 190)
             
         default: return CGSize(width: 0, height: 0)
+            
         }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 3 // Задайте ваше кастомное расстояние между ячейками
+        return 5 // Задайте ваше кастомное расстояние между ячейками
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

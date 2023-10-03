@@ -28,6 +28,8 @@
 		7D959E622ACC3F8D00FA66DE /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D959E602ACC3F8D00FA66DE /* SettingsViewController.xib */; };
 		7D959E672ACC419500FA66DE /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D959E652ACC419500FA66DE /* SettingTableViewCell.swift */; };
 		7D959E682ACC419500FA66DE /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D959E662ACC419500FA66DE /* SettingTableViewCell.xib */; };
+		7D959E6A2ACC90B400FA66DE /* SettingsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D959E692ACC90B400FA66DE /* SettingsType.swift */; };
+		7D959E6C2ACC932600FA66DE /* SettingAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D959E6B2ACC932600FA66DE /* SettingAdapter.swift */; };
 		7DB4CE202AC1D079001EBBC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4CE1F2AC1D079001EBBC9 /* AppDelegate.swift */; };
 		7DB4CE222AC1D079001EBBC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4CE212AC1D079001EBBC9 /* SceneDelegate.swift */; };
 		7DB4CE242AC1D079001EBBC9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4CE232AC1D079001EBBC9 /* SplashViewController.swift */; };
@@ -59,6 +61,8 @@
 		7D959E602ACC3F8D00FA66DE /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		7D959E652ACC419500FA66DE /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		7D959E662ACC419500FA66DE /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
+		7D959E692ACC90B400FA66DE /* SettingsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsType.swift; sourceTree = "<group>"; };
+		7D959E6B2ACC932600FA66DE /* SettingAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAdapter.swift; sourceTree = "<group>"; };
 		7DB4CE1C2AC1D079001EBBC9 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB4CE1F2AC1D079001EBBC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DB4CE212AC1D079001EBBC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 			children = (
 				7D38CD912AC438D100EB10A0 /* ApiWeather .swift */,
 				7D38CDA12AC4AFFC00EB10A0 /* WeatherAPIDelegate.swift */,
+				7D959E692ACC90B400FA66DE /* SettingsType.swift */,
+				7D959E6B2ACC932600FA66DE /* SettingAdapter.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 				7DB4CE392AC3130E001EBBC9 /* extensionForBool+Int.swift in Sources */,
 				7D959E5D2ACC397B00FA66DE /* ImageAboutWeatherCollectionViewCell.swift in Sources */,
 				7D38CDE92AC88E5A00EB10A0 /* MainCollectionViewModel.swift in Sources */,
+				7D959E6C2ACC932600FA66DE /* SettingAdapter.swift in Sources */,
 				7DB4CE202AC1D079001EBBC9 /* AppDelegate.swift in Sources */,
 				7D38CD902AC42A3300EB10A0 /* RealTimeWeatherRespons.swift in Sources */,
 				7D959E612ACC3F8D00FA66DE /* SettingsViewController.swift in Sources */,
@@ -316,6 +323,7 @@
 				7D38CDF12AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.swift in Sources */,
 				7D959E672ACC419500FA66DE /* SettingTableViewCell.swift in Sources */,
 				7DB4CE342AC1DA16001EBBC9 /* WeatherLocation .swift in Sources */,
+				7D959E6A2ACC90B400FA66DE /* SettingsType.swift in Sources */,
 				7D38CDD52AC7751100EB10A0 /* CelsiumAndHoursCollectionViewCell.swift in Sources */,
 				7DB4CE222AC1D079001EBBC9 /* SceneDelegate.swift in Sources */,
 				7D38CD9B2AC4951900EB10A0 /* MainViewController.swift in Sources */,
