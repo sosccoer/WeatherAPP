@@ -15,9 +15,21 @@ class SettingAdapter {
         
         switch settings.temperature {
         case .celsius:
-            return "\(info.temperatureInCelsius) \(TemperatureType.celsius.rawValue)"
+            return "\(info.temperatureInCelsius)\(TemperatureType.celsius.rawValue)"
         case .fahrenheit:
-            return "\(info.temperatureInFahrenheit) \(TemperatureType.fahrenheit.rawValue)"
+            return "\(info.temperatureInFahrenheit)\(TemperatureType.fahrenheit.rawValue)"
+            
+        }
+        
+    }
+    
+    func getFeelsLikeTemperature(for info: CurrentWeather,with settings: Settings) -> String {
+        
+        switch settings.temperature {
+        case .celsius:
+            return "\(info.feelsLikeInCelsius)\(TemperatureType.celsius.rawValue)"
+        case .fahrenheit:
+            return "\(info.feelsLikeInFahrenheit)\(TemperatureType.fahrenheit.rawValue)"
             
         }
         
@@ -27,11 +39,11 @@ class SettingAdapter {
         
         switch settings.velocity {
         case .mph:
-            return "\(info.windInMilesPerHour) \(VelocityType.mph.rawValue)"
+            return "\(info.windInMilesPerHour)\(VelocityType.mph.rawValue)"
         case .kph:
-            return "\(info.windInKilometerPerHour) \(VelocityType.kph.rawValue)"
+            return "\(info.windInKilometerPerHour)\(VelocityType.kph.rawValue)"
         case .mps:
-            return "\(info.windInKilometerPerHour / 3.6) \(VelocityType.mps.rawValue)"
+            return "\(info.windInKilometerPerHour / 3.6)\(VelocityType.mps.rawValue)"
         }
         
     }
@@ -40,22 +52,42 @@ class SettingAdapter {
         switch settings.pressure {
             
         case .mmHg:
-            return "\(info.pressureInMilliBars * mmHgCoefficient) \(PressureType.mmHg.rawValue)"
+            return "\(info.pressureInMilliBars * mmHgCoefficient)\(PressureType.mmHg.rawValue)"
             
         case .mb:
-            return "\(info.pressureInMilliBars) \(PressureType.mb.rawValue)"
+            return "\(info.pressureInMilliBars)\(PressureType.mb.rawValue)"
             
         case .inches:
-            return "\(info.pressureInInches) \(PressureType.inches.rawValue)"
+            return "\(info.pressureInInches)\(PressureType.inches.rawValue)"
             
         }
         
     }
     
+    func getVisible(for info: CurrentWeather,with settings:Settings) -> String {
+        
+        switch settings.space {
+        case .km:
+            return "\(info.visibleInKiloMeters)\(SpaceType.km.rawValue)"
+        case .mile:
+            return "\(info.visibleInMiles)\(SpaceType.mile.rawValue)"
+        }
+        
+    }
+    
+    func getGustVelocity(for info: CurrentWeather,with settings: Settings) -> String {
+        
+        switch settings.velocity {
+            
+        case .mph:
+            return "\(info.gustInMilesPerHour)\(VelocityType.mph.rawValue)"
+        case .kph:
+            return "\(info.gustInKilometerPerHour)\(VelocityType.kph.rawValue)"
+        case .mps:
+            return "\(info.gustInKilometerPerHour / 3.6)\(VelocityType.kph.rawValue)"
+        }
+        
+    }
+    
 }
-
-
-
-
-
 

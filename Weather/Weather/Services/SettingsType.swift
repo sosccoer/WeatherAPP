@@ -37,7 +37,7 @@ enum SpaceType: String {
 class Settings {
     
     var velocity: VelocityType = .kph
-    var pressure: PressureType = .mmHg
+    var pressure: PressureType = .mb
     var precipitation: PrecipitationType = .mm
     var temperature: TemperatureType = .celsius
     var space: SpaceType = .km

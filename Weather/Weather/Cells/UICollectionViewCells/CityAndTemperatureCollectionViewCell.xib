@@ -63,7 +63,9 @@
             </constraints>
             <size key="customSize" width="524" height="298"/>
             <connections>
+                <outlet property="nameOfCity" destination="R24-7p-OA4" id="Cy8-3P-CG3"/>
                 <outlet property="settingButton" destination="1qu-t9-qur" id="zYz-0P-V4A"/>
+                <outlet property="temperature" destination="BXB-11-f8K" id="Bga-mD-gao"/>
             </connections>
             <point key="canvasLocation" x="500.76335877862596" y="56.338028169014088"/>
         </collectionViewCell>

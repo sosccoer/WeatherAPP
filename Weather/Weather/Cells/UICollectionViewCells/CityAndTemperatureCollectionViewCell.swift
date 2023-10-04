@@ -11,6 +11,10 @@ class CityAndTemperatureCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var settingButton: UIButton!
     
+    @IBOutlet weak var nameOfCity: UILabel!
+    
+    @IBOutlet weak var temperature: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,7 +22,7 @@ class CityAndTemperatureCollectionViewCell: UICollectionViewCell {
     
     @IBAction func presentSettingViewController(_ sender: Any) {
         
-        let destination = SettingsViewController()
+        
         
         
         

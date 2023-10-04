@@ -20,26 +20,26 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vnZ-qw-MIB">
                         <rect key="frame" x="118" y="86.666666666666686" width="195" height="195"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ощущается как" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCP-uc-qFi">
-                                <rect key="frame" x="16" y="8" width="163" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ощущается как" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCP-uc-qFi">
+                                <rect key="frame" x="16" y="38" width="163" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAh-QM-XLl">
-                                <rect key="frame" x="24.333333333333343" y="37.666666666666664" width="146.33333333333334" height="119.66666666666669"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <rect key="frame" x="71.333333333333343" y="90.999999999999986" width="52.333333333333343" height="42.000000000000014"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="CCP-uc-qFi" secondAttribute="trailing" constant="16" id="BKJ-0G-4D2"/>
+                            <constraint firstItem="ZAh-QM-XLl" firstAttribute="top" secondItem="CCP-uc-qFi" secondAttribute="bottom" constant="32" id="EVX-dx-sOf"/>
                             <constraint firstAttribute="width" constant="195" id="Ebj-IZ-Egf"/>
                             <constraint firstAttribute="height" constant="195" id="UiX-P3-hY7"/>
-                            <constraint firstItem="ZAh-QM-XLl" firstAttribute="centerY" secondItem="vnZ-qw-MIB" secondAttribute="centerY" id="fSb-si-wxo"/>
+                            <constraint firstItem="ZAh-QM-XLl" firstAttribute="centerY" secondItem="vnZ-qw-MIB" secondAttribute="centerY" multiplier="1.15" id="fSb-si-wxo"/>
                             <constraint firstItem="ZAh-QM-XLl" firstAttribute="centerX" secondItem="vnZ-qw-MIB" secondAttribute="centerX" id="hW3-0w-AgV"/>
-                            <constraint firstItem="CCP-uc-qFi" firstAttribute="top" secondItem="vnZ-qw-MIB" secondAttribute="top" constant="8" id="i6f-tN-hj8"/>
                             <constraint firstItem="CCP-uc-qFi" firstAttribute="leading" secondItem="vnZ-qw-MIB" secondAttribute="leading" constant="16" id="kbe-ih-Gyw"/>
                         </constraints>
                     </view>
