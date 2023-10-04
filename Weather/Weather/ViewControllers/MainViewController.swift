@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
         
         MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " asd ",value: "fsfsd"),
         
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
+        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: "это четвертая  ",value: "4"),
         MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
         
         MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
@@ -51,8 +51,11 @@ class MainViewController: UIViewController {
         
         apiWeather.delegate = self
         apiWeather.makeCurrentWeather()
+        updateValues()
+        collectionView.reloadData()
         
         setupMainView()
+        
         setupCollectionView ()
         
         
@@ -62,7 +65,7 @@ class MainViewController: UIViewController {
         
         guard let info = lastRespons?.currentWeather else{return}
         
-        let ready: [MainCollectionViewModel] = [
+        self.cells = [
             
             MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell,nameOfSetting: "asdasd",value: "fadas" ),
             
@@ -82,7 +85,7 @@ class MainViewController: UIViewController {
             
         ]
         
-        self.cells = ready
+        
         
     }
     
@@ -168,7 +171,8 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             cell.layer.cornerRadius = 30
             cell.backgroundColor = transparentColor
             
-            
+            cell.nameOFSetting.text = cells[3].nameOfSetting
+            cell.value.text = cells[3].value
             
             return cell
             
