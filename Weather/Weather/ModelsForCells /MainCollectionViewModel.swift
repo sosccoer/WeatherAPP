@@ -11,9 +11,8 @@ import UIKit
 struct MainCollectionViewModel {
     
     let type: TypeOfMainCollectionView
-//    let nameOfSetting: String?
-//    let value: String?
-//    let imageAboutWeather: UIImage?
+    let nameOfSetting: String?
+    let value: String?
     
     enum TypeOfMainCollectionView {
         

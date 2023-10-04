@@ -8,7 +8,11 @@
 import UIKit
 
 class ForSquareTableViewCollectionViewCell: UICollectionViewCell {
-
+    
+    @IBOutlet weak var nameOFSetting: UILabel!
+    
+    @IBOutlet weak var value: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

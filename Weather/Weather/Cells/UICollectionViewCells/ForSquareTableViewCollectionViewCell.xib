@@ -51,6 +51,10 @@
                 <constraint firstItem="vnZ-qw-MIB" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="xXl-Jf-qvZ"/>
             </constraints>
             <size key="customSize" width="431" height="343"/>
+            <connections>
+                <outlet property="nameOFSetting" destination="CCP-uc-qFi" id="fgZ-l6-Xqa"/>
+                <outlet property="value" destination="ZAh-QM-XLl" id="UKv-ON-EFg"/>
+            </connections>
             <point key="canvasLocation" x="429.7709923664122" y="123.59154929577466"/>
         </collectionViewCell>
     </objects>

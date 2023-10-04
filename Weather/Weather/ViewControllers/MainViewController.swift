@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum WeatherRequestPath: String {
+    case currentWeather = "/current.json"
+}
+
 class MainViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -19,25 +23,66 @@ class MainViewController: UIViewController {
     
     let refreshControl = UIRefreshControl()
     
-    private let cells: [MainCollectionViewModel] = [
+    private let adapter = SettingAdapter()
+    
+    private let settings = Settings()
+    
+    private var cells: [MainCollectionViewModel] = [
         
-        MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell),
-        MainCollectionViewModel(type: .CelsiumAndHoursCollectionViewCell),
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell),
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell)
+        MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell,nameOfSetting: "",value: "" ),
+        
+        MainCollectionViewModel(type: .CelsiumAndHoursCollectionViewCell,nameOfSetting: "" ,value: ""),
+        
+        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " asd ",value: "fsfsd"),
+        
+        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
+        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
+        
+        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
+        
+        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
+        
+        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
         
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        apiWeather.makeCurrentWeather()
-        setupMainView()
+        
         apiWeather.delegate = self
+        apiWeather.makeCurrentWeather()
+        
+        setupMainView()
         setupCollectionView ()
+        
+        
+    }
+    
+    func updateValues ()  {
+        
+        guard let info = lastRespons?.currentWeather else{return}
+        
+        let ready: [MainCollectionViewModel] = [
+            
+            MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell,nameOfSetting: "asdasd",value: "fadas" ),
+            
+            MainCollectionViewModel(type: .CelsiumAndHoursCollectionViewCell,nameOfSetting: "Ощущается как",value: adapter.getTemperature(for: info, with: settings) ),
+            
+            MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: "Ощущается как",value: adapter.getTemperature(for: info, with: settings)),
+            
+            MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: "Ощущается как",value: adapter.getTemperature(for: info, with: settings)),
+            
+            MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: "Ощущается как",value: adapter.getTemperature(for: info, with: settings)),
+            
+            MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: "Ощущается как",value: adapter.getTemperature(for: info, with: settings)),
+            
+            MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: "Ощущается как",value: adapter.getTemperature(for: info, with: settings)),
+            
+            MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: "Ощущается как",value: adapter.getTemperature(for: info, with: settings))
+            
+        ]
+        
+        self.cells = ready
         
     }
     
@@ -62,6 +107,8 @@ class MainViewController: UIViewController {
     @objc private func refreshData() {
         
         apiWeather.makeCurrentWeather()
+        updateValues()
+        collectionView.reloadData()
         refreshControl.endRefreshing()
         
     }
@@ -112,12 +159,16 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             cell.layer.cornerRadius = 20
             cell.backgroundColor = transparentColor
             
+            
+            
             return cell
             
         case .ForSquareTableViewCollectionViewCell: guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ForSquareTableViewCollectionViewCell", for: indexPath) as? ForSquareTableViewCollectionViewCell else {return UICollectionViewCell()}
             
             cell.layer.cornerRadius = 30
             cell.backgroundColor = transparentColor
+            
+            
             
             return cell
             
@@ -160,6 +211,7 @@ extension MainViewController: WeatherAPIDelegate {
     func gotRealTimeWeather(respons: RealTimeWeatherRespons) {
         
         lastRespons = respons
+        updateValues()
     }
     
     func gotError(description: String) {
