@@ -9,9 +9,12 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    let test = Settings()
+    
+    weak var settings: Settings!
+    
     @IBOutlet weak var tableView: UITableView!
     
-
     let cells: [TypeOfTableViewCell] = [
         
         TypeOfTableViewCell(type: .SettingTableViewCell,nameOfSetting: "Velocity Type",nameOfValues: [VelocityType.kph.rawValue,VelocityType.mph.rawValue,VelocityType.mps.rawValue]),
@@ -29,6 +32,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.clear
+        
         setupTableView()
     }
     
@@ -64,9 +68,6 @@ class SettingsViewController: UIViewController {
         
     }
     
-    
-    
-    
 }
 
 extension SettingsViewController: UITableViewDelegate,UITableViewDataSource {
@@ -93,31 +94,32 @@ extension SettingsViewController: UITableViewDelegate,UITableViewDataSource {
                 
                 cell.segmentControl.insertSegment(withTitle: cells[index].nameOfValues[value], at: value, animated: false)
             }
+            
+            cell.segmentedControlAction = { [self]   selectedIndex in
                 
-            updateSelected(for: cell, with: cell.segmentControl)
-            
-            
-            cell.segmentedControlAction = {  selectedIndex in
-                    // Обработайте изменения для каждой ячейки здесь
-                    if indexPath.row == 0 {
-                        // Для первой ячейки
-                        print("Выбран сегмент \(selectedIndex) в первой ячейке")
-                        // Выполните нужное действие для первой ячейки
-                    } else if indexPath.row == 1 {
-                        // Для второй ячейки
-                        print("Выбран сегмент \(selectedIndex) во второй ячейке")
-                        // Выполните нужное действие для второй ячейки
-                    }
-                    // И так далее, обработайте изменения для других ячеек
+                switch indexPath.row {
+                    
+                case 0 : settings.velocity = VelocityType(rawValue: cell.segmentControl.titleForSegment(at: selectedIndex) ?? "") ?? settings.velocity
+                    
+                case 1 : settings.pressure = PressureType(rawValue: cell.segmentControl.titleForSegment(at: selectedIndex) ?? "") ?? settings.pressure
+                    
+                case 2 : settings.precipitation = PrecipitationType(rawValue: cell.segmentControl.titleForSegment(at: selectedIndex) ?? "") ?? settings.precipitation
+                    
+                case 3 : settings.temperature = TemperatureType(rawValue: cell.segmentControl.titleForSegment(at: selectedIndex) ?? "") ?? settings.temperature
+                    
+                case 4 : settings.space = SpaceType(rawValue: cell.segmentControl.titleForSegment(at: selectedIndex) ?? "") ?? settings.space
+                    
+                default:
+                    return
                 }
+                
+            }
             
+            updateSelected(for: cell, with: cell.segmentControl)
             
             return cell
             
         }
-        
-        
-        
         
     }
     

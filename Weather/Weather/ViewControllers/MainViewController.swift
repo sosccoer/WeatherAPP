@@ -115,6 +115,7 @@ class MainViewController: UIViewController {
     @objc func buttonTapped(_ sender: UIButton) {
         
         let destination = SettingsViewController()
+        destination.settings = settings
         present(destination,animated: true)
         
     }
