@@ -15,9 +15,13 @@ class SettingsViewController: UIViewController {
     let cells: [TypeOfTableViewCell] = [
         
         TypeOfTableViewCell(type: .SettingTableViewCell,nameOfSetting: "Velocity Type",nameOfValues: [VelocityType.kph.rawValue,VelocityType.mph.rawValue,VelocityType.mps.rawValue]),
+        
         TypeOfTableViewCell(type: .SettingTableViewCell,nameOfSetting: "Pressure Type",nameOfValues: [PressureType.inches.rawValue,PressureType.mb.rawValue,PressureType.mmHg.rawValue]),
+        
         TypeOfTableViewCell(type: .SettingTableViewCell,nameOfSetting: "Precipitation Type",nameOfValues: [PrecipitationType.inches.rawValue,PrecipitationType.mm.rawValue]),
+        
         TypeOfTableViewCell(type: .SettingTableViewCell,nameOfSetting: "Temperature Type",nameOfValues: [TemperatureType.celsius.rawValue,TemperatureType.fahrenheit.rawValue]),
+        
         TypeOfTableViewCell(type: .SettingTableViewCell,nameOfSetting: "Space Type",nameOfValues: [SpaceType.km.rawValue,SpaceType.mile.rawValue])
         
     ]
@@ -50,6 +54,17 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    private func updateSelected( for cell: SettingTableViewCell , with segmentControl: UISegmentedControl ) {
+        
+        chose(Settings.init().velocity.rawValue, in: cell.segmentControl)
+        chose(Settings.init().precipitation.rawValue, in: cell.segmentControl)
+        chose(Settings.init().pressure.rawValue, in: cell.segmentControl)
+        chose(Settings.init().space.rawValue, in: cell.segmentControl)
+        chose(Settings.init().temperature.rawValue, in: cell.segmentControl)
+        
+    }
+    
+    
     
     
 }
@@ -69,23 +84,40 @@ extension SettingsViewController: UITableViewDelegate,UITableViewDataSource {
             
         case .SettingTableViewCell : guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as? SettingTableViewCell else {return UITableViewCell()}
             
+            
+            
             cell.label.text = cells[index].nameOfSetting
             cell.segmentControl.removeAllSegments()
             
             for value in cells[index].nameOfValues.indices{
                 
                 cell.segmentControl.insertSegment(withTitle: cells[index].nameOfValues[value], at: value, animated: false)
-                              
             }
+                
+            updateSelected(for: cell, with: cell.segmentControl)
             
-            chose(Settings.init().velocity.rawValue, in: cell.segmentControl)
-            chose(Settings.init().precipitation.rawValue, in: cell.segmentControl)
-            chose(Settings.init().pressure.rawValue, in: cell.segmentControl)
-            chose(Settings.init().space.rawValue, in: cell.segmentControl)
-            chose(Settings.init().temperature.rawValue, in: cell.segmentControl)
+            
+            cell.segmentedControlAction = {  selectedIndex in
+                    // Обработайте изменения для каждой ячейки здесь
+                    if indexPath.row == 0 {
+                        // Для первой ячейки
+                        print("Выбран сегмент \(selectedIndex) в первой ячейке")
+                        // Выполните нужное действие для первой ячейки
+                    } else if indexPath.row == 1 {
+                        // Для второй ячейки
+                        print("Выбран сегмент \(selectedIndex) во второй ячейке")
+                        // Выполните нужное действие для второй ячейки
+                    }
+                    // И так далее, обработайте изменения для других ячеек
+                }
+            
             
             return cell
+            
         }
+        
+        
+        
         
     }
     

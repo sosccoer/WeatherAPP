@@ -13,15 +13,29 @@ class SettingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
+    var segmentedControlAction: ((Int) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        segmentControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        
     }
+    
+    @objc func segmentedControlValueChanged() {
+            // Вызывается при изменении значения UISegmentedControl
+            let selectedIndex = segmentControl.selectedSegmentIndex
+            segmentedControlAction?(selectedIndex)
+        }
+    
+    
+        
+      
+        
+    
     
 }
