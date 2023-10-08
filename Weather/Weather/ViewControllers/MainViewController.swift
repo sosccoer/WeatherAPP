@@ -8,7 +8,7 @@
 import UIKit
 
 enum WeatherRequestPath: String {
-    case currentWeather = "/current.json"
+    case currentWeather = "/forecast.json"
 }
 
 class MainViewController: UIViewController {
