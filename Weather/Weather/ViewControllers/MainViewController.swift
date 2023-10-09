@@ -8,7 +8,7 @@
 import UIKit
 
 enum WeatherRequestPath: String {
-    case currentWeather = "/forecast.json"
+    case forecastWeather = "/forecast.json"
 }
 
 class MainViewController: UIViewController {
@@ -26,6 +26,8 @@ class MainViewController: UIViewController {
     private let adapter = SettingAdapter()
     
     private let settings = Settings()
+    
+    var collbackForUpdateHoursAndTemperatureCell: (() -> Void)?
     
     private var cells: [MainCollectionViewModel] = [
         
@@ -53,6 +55,8 @@ class MainViewController: UIViewController {
         refreshData()
         
         setupMainView()
+        
+        updateValues()
         
         setupCollectionView ()
         
@@ -82,6 +86,10 @@ class MainViewController: UIViewController {
             MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: "Скорость порывов",value: adapter.getGustVelocity(for: info, with: settings))
             
         ]
+        
+        
+        collbackForUpdateHoursAndTemperatureCell?()
+        
         
     }
     

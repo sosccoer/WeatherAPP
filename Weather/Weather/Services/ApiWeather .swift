@@ -17,7 +17,7 @@ class ApiWeather {
     
     func makeCurrentWeather () {
         
-        let URLComponents = makeURLComponents(for: .currentWeather, place: "Minsk")
+        let URLComponents = makeURLComponents(for: .forecastWeather, place: "Minsk")
         let headers: HTTPHeaders = HTTPHeaders([
             "X-RapidAPI-Key" : self.APIKey,
             "X-RapidAPI-Host" : self.baseURL

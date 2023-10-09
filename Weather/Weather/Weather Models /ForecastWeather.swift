@@ -15,9 +15,7 @@ struct ForecastWeather: Codable {
         
         case forecastDay = "forecastday"
         
-        
     }
-    
 }
 
 struct ForecastDay: Codable {
@@ -35,8 +33,6 @@ struct ForecastDay: Codable {
         case hour =      "hour"
         
     }
-    
-    
 }
 
 struct Day: Codable {
@@ -51,9 +47,8 @@ struct Day: Codable {
         case maxTempCelsium =   "maxtemp_c"
         case maxTempFarenheit = "maxtemp_f"
         case weatherCondition = "condition"
-         
+        
     }
-    
 }
 
 struct Astro: Codable {
