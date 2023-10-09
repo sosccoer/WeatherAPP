@@ -131,7 +131,7 @@ extension ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewDelegate, U
         cell.temperatureCelsium.text = String(cells[index].temperature)
         cell.timeLabel.text = String(cells[index].time)
         
-        print("вот такое время: \(String(cells[index].time)) и вот такая температура: \(String(cells[index].temperature))")
+//        print("вот такое время: \(String(cells[index].time)) и вот такая температура: \(String(cells[index].temperature))")
         
         collectionView.reloadData()
         return cell

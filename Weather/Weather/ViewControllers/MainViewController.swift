@@ -91,6 +91,7 @@ class MainViewController: UIViewController {
         collbackForUpdateHoursAndTemperatureCell?()
         
         
+        
     }
     
     private func setupMainView () {
@@ -224,6 +225,8 @@ extension MainViewController: WeatherAPIDelegate {
         
         lastRespons = respons
         updateValues()
+        
+        
     }
     
     func gotError(description: String) {
