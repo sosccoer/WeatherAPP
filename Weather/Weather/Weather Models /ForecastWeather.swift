@@ -41,8 +41,6 @@ struct ForecastDay: Codable {
 
 struct Day: Codable {
     
-//    let dateToday: String
-    
     let maxTempCelsium: Double
     let maxTempFarenheit: Double
     
@@ -50,7 +48,6 @@ struct Day: Codable {
     
     enum CodingKeys: String ,CodingKey {
         
-//        case dateToday =             "date"
         case maxTempCelsium =   "maxtemp_c"
         case maxTempFarenheit = "maxtemp_f"
         case weatherCondition = "condition"
