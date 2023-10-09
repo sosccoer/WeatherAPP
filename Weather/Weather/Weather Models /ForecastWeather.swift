@@ -7,26 +7,55 @@
 
 import Foundation
 
-struct ForecastDaytWeather: Codable {
+struct ForecastWeather: Codable {
     
-    let zero: zero
-    let first: zero
-    let secont: zero
+    let forecastDay: [ForecastDay]
     
     enum CodingKeys: String,CodingKey {
         
-        case zero =   "0"
-        case first =  "1"
-        case secont = "2"
+        case forecastDay = "forecastday"
+        
         
     }
     
 }
 
-struct zero: Codable {
+struct ForecastDay: Codable {
     
     let date: String
-    let astro: Astro
+    let day: Day
+    let astrology: Astro
+    let hour: [Hour]
+    
+    enum CodingKeys: String,CodingKey {
+        
+        case date =      "date"
+        case day =       "day"
+        case astrology = "astro"
+        case hour =      "hour"
+        
+    }
+    
+    
+}
+
+struct Day: Codable {
+    
+//    let dateToday: String
+    
+    let maxTempCelsium: Double
+    let maxTempFarenheit: Double
+    
+    let weatherCondition: WeatherCondiation
+    
+    enum CodingKeys: String ,CodingKey {
+        
+//        case dateToday =             "date"
+        case maxTempCelsium =   "maxtemp_c"
+        case maxTempFarenheit = "maxtemp_f"
+        case weatherCondition = "condition"
+         
+    }
     
 }
 
@@ -52,71 +81,13 @@ struct Hour : Codable {
     
     enum CodingKeys: String, CodingKey {
         
-        case time = "time"
-        case temperatureInCelsium = "temp_c"
+        case time =                   "time"
+        case temperatureInCelsium =   "temp_c"
         case temperatureInFarenheit = "temp_f"
-        case WeatherCondiation = "condition"
+        case WeatherCondiation =      "condition"
         
     }
 }
 
 
 
-struct Hours: Codable {
-    
-    let zero: Hour
-    let one: Hour
-    let two: Hour
-    let three: Hour
-    let four: Hour
-    let five: Hour
-    let six: Hour
-    let seven: Hour
-    let eight: Hour
-    let nine: Hour
-    let ten: Hour
-    let eleven: Hour
-    let twelve: Hour
-    let threteen: Hour
-    let fourteen: Hour
-    let fiveteen: Hour
-    let sixteen: Hour
-    let seventyteen: Hour
-    let eighteen: Hour
-    let nineteen: Hour
-    let twenty: Hour
-    let twentyOne: Hour
-    let twentyTwo: Hour
-    let twentyFree: Hour
-    
-    enum CodingKeys: String,CodingKey {
-        
-        case zero =        "0"
-        case one =         "1"
-        case two =         "2"
-        case three =       "3"
-        case four =        "4"
-        case five =        "5"
-        case six =         "6"
-        case seven =       "7"
-        case eight =       "8"
-        case nine =        "9"
-        case ten =         "10"
-        case eleven =      "11"
-        case twelve =      "12"
-        case threteen =    "13"
-        case fourteen =    "14"
-        case fiveteen =    "15"
-        case sixteen =     "16"
-        case seventyteen = "17"
-        case eighteen =    "18"
-        case nineteen =    "19"
-        case twenty =      "20"
-        case twentyOne =   "21"
-        case twentyTwo =   "22"
-        case twentyFree =  "23"
-        
-    }
-    
-    
-}

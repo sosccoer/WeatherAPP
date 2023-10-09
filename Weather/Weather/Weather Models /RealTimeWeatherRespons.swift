@@ -11,11 +11,13 @@ struct RealTimeWeatherRespons: Codable {
     
     let currentWeather: CurrentWeather
     let currentLocation: WeatherLocation
+    let forecastWeather: ForecastWeather
     
     enum CodingKeys: String, CodingKey {
         
         case currentWeather  = "current"
         case currentLocation = "location"
+        case forecastWeather = "forecast"
     }
     
 }
