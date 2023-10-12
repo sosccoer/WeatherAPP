@@ -7,12 +7,14 @@
 
 import UIKit
 
+
+
 enum WeatherRequestPath: String {
     case forecastWeather = "/forecast.json"
 }
 
-class MainViewController: UIViewController {
-    
+class MainViewController: UIViewController  {
+        
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var weatherImage: UIImageView!
@@ -23,12 +25,12 @@ class MainViewController: UIViewController {
     
     let refreshControl = UIRefreshControl()
     
+    var cellsForHoursAndTemperatureCell: [CelsiumAndHoursModel] = []
+    
     private let adapter = SettingAdapter()
     
     private let settings = Settings()
-    
-    var collbackForUpdateHoursAndTemperatureCell: (() -> Void)?
-    
+        
     private var cells: [MainCollectionViewModel] = [
         
         MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell,nameOfSetting: "",value: "" ),
@@ -51,6 +53,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         apiWeather.delegate = self
         refreshData()
         
@@ -64,8 +68,8 @@ class MainViewController: UIViewController {
     
     func updateValues ()  {
         
-        guard let info = lastRespons?.currentWeather else{return}
-        guard let location = lastRespons?.currentLocation else {return}
+        guard let info = lastRespons?.currentWeather else{ return }
+        guard let location = lastRespons?.currentLocation else { return }
         
         self.cells = [
             
@@ -87,11 +91,44 @@ class MainViewController: UIViewController {
             
         ]
         
+       updateValuesForHoursAndTemperatureCell()
+    }
+    
+    func updateValuesForHoursAndTemperatureCell () {
         
-        collbackForUpdateHoursAndTemperatureCell?()
+        guard let forecast = lastRespons?.forecastWeather.forecastDay else { return }
         
+        self.cellsForHoursAndTemperatureCell = [
+            
+            CelsiumAndHoursModel(time: forecast[0].hour[0].time, temperature: forecast[0].hour[0].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[1].time, temperature: forecast[0].hour[1].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[2].time, temperature: forecast[0].hour[2].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[3].time, temperature: forecast[0].hour[3].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[4].time, temperature: forecast[0].hour[4].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[5].time, temperature: forecast[0].hour[5].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[6].time, temperature: forecast[0].hour[6].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[7].time, temperature: forecast[0].hour[7].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[8].time, temperature: forecast[0].hour[8].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[9].time, temperature: forecast[0].hour[9].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[10].time, temperature: forecast[0].hour[10].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[11].time, temperature: forecast[0].hour[11].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[12].time, temperature: forecast[0].hour[12].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[13].time, temperature: forecast[0].hour[13].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[14].time, temperature: forecast[0].hour[14].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[15].time, temperature: forecast[0].hour[15].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[16].time, temperature: forecast[0].hour[16].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[17].time, temperature: forecast[0].hour[17].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[18].time, temperature: forecast[0].hour[18].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[19].time, temperature: forecast[0].hour[19].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[20].time, temperature: forecast[0].hour[20].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[21].time, temperature: forecast[0].hour[21].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[22].time, temperature: forecast[0].hour[22].temperatureInCelsium),
+            CelsiumAndHoursModel(time: forecast[0].hour[23].time, temperature: forecast[0].hour[23].temperatureInCelsium)
         
+        ]
         
+        collectionView.reloadData()
+         
     }
     
     private func setupMainView () {
@@ -170,6 +207,9 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         case .CelsiumAndHoursCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ForHoursAndCelsiumCellsCollectionViewCell", for: indexPath) as? ForHoursAndCelsiumCellsCollectionViewCell else {return UICollectionViewCell()}
             cell.layer.cornerRadius = 20
             cell.backgroundColor = transparentColor
+            cell.cells = self.cellsForHoursAndTemperatureCell
+            
+            cell.collectionView.reloadData()
             
             
             

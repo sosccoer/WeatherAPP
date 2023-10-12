@@ -10,9 +10,7 @@ import UIKit
 class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    var lastRespons: RealTimeWeatherRespons?
-    
+        
     var cells: [CelsiumAndHoursModel] = [
     
     CelsiumAndHoursModel(time: "", temperature: 0),
@@ -39,58 +37,12 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
     CelsiumAndHoursModel(time: "", temperature: 0),
     CelsiumAndHoursModel(time: "", temperature: 0),
     CelsiumAndHoursModel(time: "", temperature: 0),
-    
     ]
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setupCollectionView ()
-        
-         let destination = MainViewController()
-            
-        destination.collbackForUpdateHoursAndTemperatureCell = {
-            self.updateCells()
-
-        }
-                    
-    }
-    
-    private func updateCells() {
-        
-        guard let forecast = lastRespons?.forecastWeather.forecastDay else {return}
-        
-        self.cells = [
-        
-            CelsiumAndHoursModel(time: forecast[0].hour[0].time, temperature: forecast[0].hour[0].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[1].time, temperature: forecast[0].hour[1].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[2].time, temperature: forecast[0].hour[2].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[3].time, temperature: forecast[0].hour[3].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[4].time, temperature: forecast[0].hour[4].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[5].time, temperature: forecast[0].hour[5].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[6].time, temperature: forecast[0].hour[6].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[7].time, temperature: forecast[0].hour[7].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[8].time, temperature: forecast[0].hour[8].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[9].time, temperature: forecast[0].hour[9].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[10].time, temperature: forecast[0].hour[10].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[11].time, temperature: forecast[0].hour[11].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[12].time, temperature: forecast[0].hour[12].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[13].time, temperature: forecast[0].hour[13].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[14].time, temperature: forecast[0].hour[14].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[15].time, temperature: forecast[0].hour[15].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[16].time, temperature: forecast[0].hour[16].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[17].time, temperature: forecast[0].hour[17].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[18].time, temperature: forecast[0].hour[18].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[19].time, temperature: forecast[0].hour[19].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[20].time, temperature: forecast[0].hour[20].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[21].time, temperature: forecast[0].hour[21].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[22].time, temperature: forecast[0].hour[22].temperatureInCelsium),
-            CelsiumAndHoursModel(time: forecast[0].hour[23].time, temperature: forecast[0].hour[23].temperatureInCelsium)
-        
-        ]
-        
-        collectionView.reloadData()
-        
     }
     
     private func setupCollectionView () {
@@ -130,10 +82,7 @@ extension ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewDelegate, U
         
         cell.temperatureCelsium.text = String(cells[index].temperature)
         cell.timeLabel.text = String(cells[index].time)
-        
-//        print("вот такое время: \(String(cells[index].time)) и вот такая температура: \(String(cells[index].temperature))")
-        
-        collectionView.reloadData()
+                
         return cell
     }
     
@@ -156,3 +105,5 @@ extension ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewDelegateFlo
     
     
 }
+
+
