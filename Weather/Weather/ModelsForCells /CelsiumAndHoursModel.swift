@@ -10,7 +10,7 @@ import Foundation
 struct CelsiumAndHoursModel {
     
     let time: String
-    let temperature: Double
+    let temperature: String
 //    let photoWeather: UIImage()?
     
     

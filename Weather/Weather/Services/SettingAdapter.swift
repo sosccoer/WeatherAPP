@@ -11,6 +11,26 @@ class SettingAdapter {
     
     private let mmHgCoefficient = 0.750063755419211
     
+    func getTimeForHoursAndTemperatureCell (for info: ForecastWeather, index:Int) -> String {
+        
+        return "\(info.forecastDay[0].hour[index].time)H"
+        
+        
+        
+    }
+    
+    func getTemperatureForHoursAndTemperatureCell (for info: ForecastWeather,with settings: Settings,index: Int) -> String {
+        
+        switch settings.temperature {
+            
+        case .celsius:
+            return "\(info.forecastDay[0].hour[index].temperatureInCelsium)\(TemperatureType.celsius.rawValue)"
+        case .fahrenheit:
+            return "\(info.forecastDay[0].hour[index].temperatureInFarenheit)\(TemperatureType.fahrenheit.rawValue)"
+        }
+        
+    }
+    
     func getTemperature(for info:CurrentWeather,with settings: Settings) -> String {
         
         switch settings.temperature {
