@@ -10,33 +10,34 @@ import UIKit
 class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
-        
-    var cells: [CelsiumAndHoursModel] = [
     
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
-    CelsiumAndHoursModel(time: "", temperature: 0),
+    var cells: [CelsiumAndHoursModel] = [
+        
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        CelsiumAndHoursModel(time: "", temperature: 0),
+        
     ]
     
     override func awakeFromNib() {
@@ -82,7 +83,7 @@ extension ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewDelegate, U
         
         cell.temperatureCelsium.text = String(cells[index].temperature)
         cell.timeLabel.text = String(cells[index].time)
-                
+        
         return cell
     }
     
@@ -91,19 +92,13 @@ extension ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewDelegate, U
 extension ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    
+        
         return CGSize(width: 45, height: 110)
         
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         5
     }
-        
-    
     
 }
-
-

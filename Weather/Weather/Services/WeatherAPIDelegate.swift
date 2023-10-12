@@ -14,6 +14,12 @@ protocol WeatherAPIDelegate: AnyObject {
     
 }
 
+enum WeatherRequestPath: String {
+    
+    case forecastWeather = "/forecast.json"
+    
+}
+
 extension WeatherAPIDelegate {
     
     func gotError(description: String) {}

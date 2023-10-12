@@ -7,14 +7,8 @@
 
 import UIKit
 
-
-
-enum WeatherRequestPath: String {
-    case forecastWeather = "/forecast.json"
-}
-
 class MainViewController: UIViewController  {
-        
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var weatherImage: UIImageView!
@@ -30,7 +24,7 @@ class MainViewController: UIViewController  {
     private let adapter = SettingAdapter()
     
     private let settings = Settings()
-        
+    
     private var cells: [MainCollectionViewModel] = [
         
         MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell,nameOfSetting: "",value: "" ),
@@ -91,7 +85,7 @@ class MainViewController: UIViewController  {
             
         ]
         
-       updateValuesForHoursAndTemperatureCell()
+        updateValuesForHoursAndTemperatureCell()
     }
     
     func updateValuesForHoursAndTemperatureCell () {
@@ -124,11 +118,11 @@ class MainViewController: UIViewController  {
             CelsiumAndHoursModel(time: forecast[0].hour[21].time, temperature: forecast[0].hour[21].temperatureInCelsium),
             CelsiumAndHoursModel(time: forecast[0].hour[22].time, temperature: forecast[0].hour[22].temperatureInCelsium),
             CelsiumAndHoursModel(time: forecast[0].hour[23].time, temperature: forecast[0].hour[23].temperatureInCelsium)
-        
+            
         ]
         
         collectionView.reloadData()
-         
+        
     }
     
     private func setupMainView () {
@@ -211,8 +205,6 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             
             cell.collectionView.reloadData()
             
-            
-            
             return cell
             
         case .ForSquareTableViewCollectionViewCell: guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ForSquareTableViewCollectionViewCell", for: indexPath) as? ForSquareTableViewCollectionViewCell else {return UICollectionViewCell()}
@@ -265,7 +257,6 @@ extension MainViewController: WeatherAPIDelegate {
         
         lastRespons = respons
         updateValues()
-        
         
     }
     
