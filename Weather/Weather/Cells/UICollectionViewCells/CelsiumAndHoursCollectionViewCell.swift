@@ -17,7 +17,9 @@ class CelsiumAndHoursCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        timeLabel.text?.prefix(5)
+        
     }
 
 }

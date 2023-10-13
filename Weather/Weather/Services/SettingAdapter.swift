@@ -13,7 +13,7 @@ class SettingAdapter {
     
     func getTimeForHoursAndTemperatureCell (for info: ForecastWeather, index:Int) -> String {
         
-        return "\(info.forecastDay[0].hour[index].time)H"
+        return "\((String(info.forecastDay[0].hour[index].time).suffix(5)).prefix(2))H"
         
         
         
