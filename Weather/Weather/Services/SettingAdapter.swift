@@ -16,16 +16,22 @@ class SettingAdapter {
         
         var imageView: UIImage = UIImage()
         
-        let stringUrl = "\(String(info.forecastDay[0].hour[index].WeatherCondiation.photoOfWeather).prefix(2))"
+        let stringUrl = "https:\(String(info.forecastDay[0].hour[index].WeatherCondiation.photoOfWeather))"
         
         guard let URL = URL(string: stringUrl) else {return UIImage()}
         
-        if let data = try? Data(contentsOf: URL) {
-            
-            guard let image = UIImage(data: data) else {return UIImage()}
-            
-            imageView = image
+        DispatchQueue.global(qos: .userInitiated).async{
+            do {
+                let data = try Data(contentsOf: URL)
+                if let image = UIImage(data: data) {
+                    imageView = image
+                }
+            } catch {
+                print("Произошла ошибка при загрузке изображения: \(error)")
+            }
         }
+        
+       
         
         return imageView
         

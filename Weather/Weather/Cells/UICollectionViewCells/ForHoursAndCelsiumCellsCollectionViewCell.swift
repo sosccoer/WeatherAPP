@@ -83,7 +83,7 @@ extension ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewDelegate, U
         
         cell.temperatureCelsium.text = String(cells[index].temperature)
         cell.timeLabel.text = String(cells[index].time)
-        cell.image = cells[index].photoWeather!
+        cell.imageView.image = cells[index].photoWeather!
         
         return cell
     }
