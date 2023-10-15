@@ -20,32 +20,30 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcr-M0-wZX">
                         <rect key="frame" x="13" y="59" width="40" height="110"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG5-7v-vcb">
-                                <rect key="frame" x="-2.3333333333333357" y="7.9999999999999982" width="45" height="20.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="11 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG5-7v-vcb">
+                                <rect key="frame" x="-2.3333333333333357" y="8" width="45" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4g-AA-UU4">
-                                <rect key="frame" x="7.9999999999999982" y="82.666666666666657" width="24.333333333333329" height="19.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="16°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4g-AA-UU4">
+                                <rect key="frame" x="7.3333333333333304" y="81.666666666666657" width="25.666666666666671" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GsG-m7-7zK">
-                                <rect key="frame" x="4" y="32.333333333333329" width="32" height="46.333333333333329"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="applewatch" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4tw-GX-tWz">
+                                <rect key="frame" x="-9" y="32.333333333333329" width="58" height="45.333333333333329"/>
                             </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="i4g-AA-UU4" firstAttribute="top" secondItem="GsG-m7-7zK" secondAttribute="bottom" constant="4" id="2f7-Uw-Hh7"/>
+                            <constraint firstItem="i4g-AA-UU4" firstAttribute="top" secondItem="4tw-GX-tWz" secondAttribute="bottom" constant="4" id="1hu-Cd-9gv"/>
                             <constraint firstItem="i4g-AA-UU4" firstAttribute="centerX" secondItem="Hcr-M0-wZX" secondAttribute="centerX" id="5JZ-WP-beO"/>
                             <constraint firstItem="FG5-7v-vcb" firstAttribute="centerX" secondItem="Hcr-M0-wZX" secondAttribute="centerX" id="8jM-4G-BTx"/>
                             <constraint firstItem="FG5-7v-vcb" firstAttribute="top" secondItem="Hcr-M0-wZX" secondAttribute="top" constant="8" id="JEg-Tj-ysy"/>
-                            <constraint firstItem="GsG-m7-7zK" firstAttribute="leading" secondItem="Hcr-M0-wZX" secondAttribute="leading" constant="4" id="Xkz-pM-fF7"/>
                             <constraint firstAttribute="width" constant="40" id="hKB-It-WHL"/>
                             <constraint firstAttribute="height" constant="110" id="kXO-no-hla"/>
-                            <constraint firstItem="GsG-m7-7zK" firstAttribute="top" secondItem="FG5-7v-vcb" secondAttribute="bottom" constant="4" id="kbT-Qv-sAW"/>
-                            <constraint firstAttribute="trailing" secondItem="GsG-m7-7zK" secondAttribute="trailing" constant="4" id="kyO-X6-jif"/>
+                            <constraint firstItem="4tw-GX-tWz" firstAttribute="top" secondItem="FG5-7v-vcb" secondAttribute="bottom" constant="4" id="mhA-U8-1Kh"/>
                             <constraint firstAttribute="bottom" secondItem="i4g-AA-UU4" secondAttribute="bottom" constant="8" id="rZh-y0-CmS"/>
                         </constraints>
                     </view>
@@ -54,15 +52,19 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="Hcr-M0-wZX" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="7Sa-pu-gfh"/>
+                <constraint firstItem="4tw-GX-tWz" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="4" id="T2L-QD-ZPG"/>
                 <constraint firstItem="Hcr-M0-wZX" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="diX-fI-NMT"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="4tw-GX-tWz" secondAttribute="trailing" constant="4" id="lXq-YI-a9a"/>
             </constraints>
             <size key="customSize" width="66" height="203"/>
             <connections>
-                <outlet property="imageOfWeather" destination="GsG-m7-7zK" id="Uko-0D-9ck"/>
                 <outlet property="temperatureCelsium" destination="i4g-AA-UU4" id="Efx-PC-Izl"/>
                 <outlet property="timeLabel" destination="FG5-7v-vcb" id="me8-yd-MAL"/>
             </connections>
             <point key="canvasLocation" x="16.793893129770993" y="0.35211267605633806"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="applewatch" catalog="system" width="110" height="128"/>
+    </resources>
 </document>

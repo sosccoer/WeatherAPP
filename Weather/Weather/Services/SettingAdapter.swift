@@ -6,16 +6,32 @@
 //
 
 import Foundation
+import UIKit
 
 class SettingAdapter {
     
     private let mmHgCoefficient = 0.750063755419211
     
+    func getPictureAboutWeather(for info: ForecastWeather , index: Int) -> UIImage {
+        
+        let stringUrl = "\(String(info.forecastDay[0].hour[index].WeatherCondiation.photoOfWeather).prefix(2))"
+        
+        guard let URL = URL(string: stringUrl) else {return UIImage()}
+        
+        if let data = try? Data(contentsOf: URL) {
+            
+            guard let image = UIImage(data: data) else {return UIImage()}
+            
+            return image
+        }
+        
+        return UIImage()
+        
+    }
+    
     func getTimeForHoursAndTemperatureCell (for info: ForecastWeather, index:Int) -> String {
         
         return "\((String(info.forecastDay[0].hour[index].time).suffix(5)).prefix(2))H"
-        
-        
         
     }
     

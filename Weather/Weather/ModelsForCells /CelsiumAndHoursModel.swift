@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 struct CelsiumAndHoursModel {
     
     let time: String
     let temperature: String
-//    let photoWeather: UIImage()?
+    let photoWeather: UIImage?
     
     
 }
