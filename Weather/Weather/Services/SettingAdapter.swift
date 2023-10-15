@@ -14,6 +14,8 @@ class SettingAdapter {
     
     func getPictureAboutWeather(for info: ForecastWeather , index: Int) -> UIImage {
         
+        var imageView: UIImage = UIImage()
+        
         let stringUrl = "\(String(info.forecastDay[0].hour[index].WeatherCondiation.photoOfWeather).prefix(2))"
         
         guard let URL = URL(string: stringUrl) else {return UIImage()}
@@ -22,10 +24,10 @@ class SettingAdapter {
             
             guard let image = UIImage(data: data) else {return UIImage()}
             
-            return image
+            imageView = image
         }
         
-        return UIImage()
+        return imageView
         
     }
     

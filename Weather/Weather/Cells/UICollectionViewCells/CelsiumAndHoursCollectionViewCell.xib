@@ -58,6 +58,7 @@
             </constraints>
             <size key="customSize" width="66" height="203"/>
             <connections>
+                <outlet property="imageView" destination="4tw-GX-tWz" id="14v-PU-p0v"/>
                 <outlet property="temperatureCelsium" destination="i4g-AA-UU4" id="Efx-PC-Izl"/>
                 <outlet property="timeLabel" destination="FG5-7v-vcb" id="me8-yd-MAL"/>
             </connections>

@@ -13,10 +13,16 @@ class CelsiumAndHoursCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var temperatureCelsium: UILabel!
     
-    @IBOutlet weak var imageOfWeather: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var image = UIImage()
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        imageView.contentMode = .scaleAspectFit
+        
+        imageView.image = image
         
     }
 

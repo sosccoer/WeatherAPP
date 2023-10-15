@@ -92,55 +92,23 @@ class MainViewController: UIViewController  {
         
         guard let forecast = lastRespons?.forecastWeather else { return }
         
-        self.cellsForHoursAndTemperatureCell = [
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 0), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 0)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 1), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 1)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 2), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 2)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 3), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 3)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 4), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 4)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 5), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 5)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 6), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 6)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 7), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 8)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 9), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 9)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 10), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 10)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 11), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 11)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 12), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 12)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 13), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 13)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 14), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 14)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 15), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 15)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 16), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 16)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 17), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 17)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 18), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 18)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 19), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 19)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 20), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 20)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 21), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 21)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 22), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 22)),
-            
-            CelsiumAndHoursModel(time: adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: 23), temperature: adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: 23))
-            
-        ]
+//        self.cellsForHoursAndTemperatureCell
+        
+        var index: Int = 0
+        
+        for i in 0...23 {
+            // Используйте один и тот же индекс при вызове методов
+            let time = adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: i)
+            let temperature = adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: i)
+            let photoWeather = adapter.getPictureAboutWeather(for: forecast, index: index)
+
+            // Создайте экземпляр CelsiumAndHoursModel и добавьте его в массив
+            let celsiumAndHoursModel = CelsiumAndHoursModel(time: time, temperature: temperature, photoWeather: photoWeather)
+            self.cellsForHoursAndTemperatureCell.append(celsiumAndHoursModel)
+
+            // Увеличьте индекс для следующей итерации
+            index += 1
+        }
         
         collectionView.reloadData()
         

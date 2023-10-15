@@ -13,30 +13,30 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
     
     var cells: [CelsiumAndHoursModel] = [
         
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
-        CelsiumAndHoursModel(time: "", temperature: ""),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", photoWeather: UIImage())
         
     ]
     
@@ -83,6 +83,7 @@ extension ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewDelegate, U
         
         cell.temperatureCelsium.text = String(cells[index].temperature)
         cell.timeLabel.text = String(cells[index].time)
+        cell.image = cells[index].photoWeather!
         
         return cell
     }
