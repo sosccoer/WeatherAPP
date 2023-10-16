@@ -12,28 +12,13 @@ class SettingAdapter {
     
     private let mmHgCoefficient = 0.750063755419211
     
-    func getPictureAboutWeather(for info: ForecastWeather , index: Int) -> UIImage {
+    func getPictureAboutWeather(for info: ForecastWeather , index: Int) -> String {
         
-        var imageView: UIImage = UIImage()
         
-        let stringUrl = "https:\(String(info.forecastDay[0].hour[index].WeatherCondiation.photoOfWeather))"
         
-        guard let URL = URL(string: stringUrl) else {return UIImage()}
+        let URLString = "https:\(String(info.forecastDay[0].hour[index].WeatherCondiation.photoOfWeather))"
         
-        DispatchQueue.global(qos: .userInitiated).async{
-            do {
-                let data = try Data(contentsOf: URL)
-                if let image = UIImage(data: data) {
-                    imageView = image
-                }
-            } catch {
-                print("Произошла ошибка при загрузке изображения: \(error)")
-            }
-        }
-        
-       
-        
-        return imageView
+        return URLString
         
     }
     

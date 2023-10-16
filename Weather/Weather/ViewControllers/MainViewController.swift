@@ -100,10 +100,10 @@ class MainViewController: UIViewController  {
             // Используйте один и тот же индекс при вызове методов
             let time = adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: i)
             let temperature = adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: i)
-            let photoWeather = adapter.getPictureAboutWeather(for: forecast, index: index)
+            let URLString = adapter.getPictureAboutWeather(for: forecast, index: index)
 
             // Создайте экземпляр CelsiumAndHoursModel и добавьте его в массив
-            let celsiumAndHoursModel = CelsiumAndHoursModel(time: time, temperature: temperature, photoWeather: photoWeather)
+            let celsiumAndHoursModel = CelsiumAndHoursModel(time: time, temperature: temperature, URLString: URLString)
             self.cellsForHoursAndTemperatureCell.append(celsiumAndHoursModel)
 
             // Увеличьте индекс для следующей итерации

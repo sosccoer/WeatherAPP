@@ -15,14 +15,25 @@ class CelsiumAndHoursCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    var image = UIImage()
+    var url: String? {
+        didSet {
+            
+            guard let URL = URL(string: url ?? "") else {return}
+                    
+            if let data = try? Data(contentsOf: URL) {
+                
+                let image = UIImage(data: data)
+                imageView.image = image
+                
+            }
+            
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        imageView.contentMode = .scaleAspectFit
-        
-        imageView.image = image
+       
         
     }
 
