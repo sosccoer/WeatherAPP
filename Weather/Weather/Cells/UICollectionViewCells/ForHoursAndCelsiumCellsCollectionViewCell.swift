@@ -13,30 +13,30 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
     
     var cells: [CelsiumAndHoursModel] = [
         
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: ""),
-        CelsiumAndHoursModel(time: "", temperature: "", URLString: "")
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage())
         
     ]
     
@@ -83,7 +83,7 @@ extension ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewDelegate, U
         
         cell.temperatureCelsium.text = String(cells[index].temperature)
         cell.timeLabel.text = String(cells[index].time)
-        cell.url = cells[index].URLString
+        cell.imageView.image = cells[index].image
         
         return cell
     }

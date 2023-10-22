@@ -21,19 +21,19 @@
                         <rect key="frame" x="68.666666666666686" y="61.666666666666657" width="387" height="199.99999999999997"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Минск" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R24-7p-OA4">
-                                <rect key="frame" x="147" y="26.000000000000007" width="92.666666666666686" height="37"/>
+                                <rect key="frame" x="147" y="4.0000000000000071" width="92.666666666666686" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21°C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXB-11-f8K">
-                                <rect key="frame" x="106" y="79" width="175" height="101.66666666666669"/>
+                                <rect key="frame" x="106" y="49.000000000000007" width="175" height="101.66666666666669"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="85"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qu-t9-qur">
-                                <rect key="frame" x="328" y="26.000000000000004" width="51" height="34.333333333333343"/>
+                                <rect key="frame" x="328" y="4.0000000000000071" width="51" height="34.333333333333336"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -42,16 +42,26 @@
                                     <action selector="presentSettingViewController:" destination="gTV-IL-0wX" eventType="touchUpInside" id="JPN-ea-R8y"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Party Cloudy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Oz-eW-Lgk">
+                                <rect key="frame" x="16" y="150.66666666666669" width="355" height="49.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="R24-7p-OA4" firstAttribute="centerX" secondItem="joE-is-0Fo" secondAttribute="centerX" id="4r6-AC-8WE"/>
-                            <constraint firstItem="BXB-11-f8K" firstAttribute="centerY" secondItem="joE-is-0Fo" secondAttribute="centerY" multiplier="1.3" id="C71-Qa-M5H"/>
-                            <constraint firstItem="BXB-11-f8K" firstAttribute="top" secondItem="R24-7p-OA4" secondAttribute="bottom" constant="16" id="FGU-EI-byN"/>
+                            <constraint firstItem="BXB-11-f8K" firstAttribute="centerY" secondItem="joE-is-0Fo" secondAttribute="centerY" id="C71-Qa-M5H"/>
+                            <constraint firstItem="BXB-11-f8K" firstAttribute="top" secondItem="R24-7p-OA4" secondAttribute="bottom" constant="8" id="FGU-EI-byN"/>
+                            <constraint firstAttribute="bottom" secondItem="0Oz-eW-Lgk" secondAttribute="bottom" id="JCD-nw-HNC"/>
+                            <constraint firstItem="0Oz-eW-Lgk" firstAttribute="leading" secondItem="joE-is-0Fo" secondAttribute="leading" constant="16" id="LcE-vE-jum"/>
                             <constraint firstAttribute="width" constant="387" id="cE9-9P-PbI"/>
                             <constraint firstItem="BXB-11-f8K" firstAttribute="centerX" secondItem="joE-is-0Fo" secondAttribute="centerX" id="g9E-mZ-PWp"/>
                             <constraint firstAttribute="trailing" secondItem="1qu-t9-qur" secondAttribute="trailing" constant="8" id="kME-ZU-S9e"/>
                             <constraint firstAttribute="height" constant="200" id="lNw-3f-1w7"/>
                             <constraint firstItem="1qu-t9-qur" firstAttribute="top" secondItem="R24-7p-OA4" secondAttribute="top" id="lfb-Er-UlJ"/>
+                            <constraint firstItem="0Oz-eW-Lgk" firstAttribute="top" secondItem="BXB-11-f8K" secondAttribute="bottom" id="oGJ-0y-teu"/>
+                            <constraint firstAttribute="trailing" secondItem="0Oz-eW-Lgk" secondAttribute="trailing" constant="16" id="swI-br-uSX"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -66,6 +76,7 @@
                 <outlet property="nameOfCity" destination="R24-7p-OA4" id="Cy8-3P-CG3"/>
                 <outlet property="settingButton" destination="1qu-t9-qur" id="zYz-0P-V4A"/>
                 <outlet property="temperature" destination="BXB-11-f8K" id="Bga-mD-gao"/>
+                <outlet property="weatherCondition" destination="0Oz-eW-Lgk" id="eEo-Zh-HEW"/>
             </connections>
             <point key="canvasLocation" x="500.76335877862596" y="56.338028169014088"/>
         </collectionViewCell>

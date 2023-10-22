@@ -15,21 +15,6 @@ class CelsiumAndHoursCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    var url: String? {
-        didSet {
-            
-            guard let URL = URL(string: url ?? "") else {return}
-                    
-            if let data = try? Data(contentsOf: URL) {
-                
-                let image = UIImage(data: data)
-                imageView.image = image
-                
-            }
-            
-        }
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         

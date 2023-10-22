@@ -12,7 +12,7 @@ struct CelsiumAndHoursModel {
     
     let time: String
     let temperature: String
-    let URLString: String
+    let image: UIImage
     
     
 }

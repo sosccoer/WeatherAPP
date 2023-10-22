@@ -15,17 +15,14 @@ class CityAndTemperatureCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var temperature: UILabel!
     
+    @IBOutlet weak var weatherCondition: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
     @IBAction func presentSettingViewController(_ sender: Any) {
-        
-        
-        
-        
-        
         
     }
     

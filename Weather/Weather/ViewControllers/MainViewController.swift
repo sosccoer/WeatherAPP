@@ -15,7 +15,11 @@ class MainViewController: UIViewController  {
     
     private let apiWeather = ApiWeather()
     
-    var lastRespons: RealTimeWeatherRespons?
+    var lastRespons: RealTimeWeatherRespons? {
+            willSet {
+                cellsForHoursAndTemperatureCell = []
+            }
+        }
     
     let refreshControl = UIRefreshControl()
     
@@ -67,7 +71,7 @@ class MainViewController: UIViewController  {
         
         self.cells = [
             
-            MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell,nameOfSetting: location.cityName ,value: adapter.getTemperature(for: info, with: settings) ),
+            MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell,nameOfSetting: location.cityName ,value: adapter.getTemperature(for: info, with: settings)),
             
             MainCollectionViewModel(type: .CelsiumAndHoursCollectionViewCell,nameOfSetting: "Ощущается как",value: adapter.getTemperature(for: info, with: settings) ),
             
@@ -85,34 +89,35 @@ class MainViewController: UIViewController  {
             
         ]
         
-        updateValuesForHoursAndTemperatureCell()
+        updateValuesForHoursAndTemperatureCell ()
+        
     }
     
     func updateValuesForHoursAndTemperatureCell () {
-        
-        guard let forecast = lastRespons?.forecastWeather else { return }
-        
-//        self.cellsForHoursAndTemperatureCell
-        
-        var index: Int = 0
-        
-        for i in 0...23 {
-            // Используйте один и тот же индекс при вызове методов
-            let time = adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: i)
-            let temperature = adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: i)
-            let URLString = adapter.getPictureAboutWeather(for: forecast, index: index)
-
-            // Создайте экземпляр CelsiumAndHoursModel и добавьте его в массив
-            let celsiumAndHoursModel = CelsiumAndHoursModel(time: time, temperature: temperature, URLString: URLString)
-            self.cellsForHoursAndTemperatureCell.append(celsiumAndHoursModel)
-
-            // Увеличьте индекс для следующей итерации
-            index += 1
+            
+            guard let forecast = lastRespons?.forecastWeather else { return }
+            
+    //        self.cellsForHoursAndTemperatureCell
+            
+            for i in 0...23 {
+                // Используйте один и тот же индекс при вызове методов
+                let time = adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: i)
+                let temperature = adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: i)
+                
+                adapter.getPictureAboutWeather(for: forecast, index: i) { [weak self] image in
+                    let celsiumAndHoursModel = CelsiumAndHoursModel(time: time, temperature: temperature, image: image)
+                    self?.cellsForHoursAndTemperatureCell.append(celsiumAndHoursModel)
+                    
+                    DispatchQueue.main.async { [weak self] in
+                        self?.cellsForHoursAndTemperatureCell.sort {
+                            $0.time < $1.time
+                        }
+                        self?.collectionView.reloadData()
+                    }
+                }
+            }
         }
-        
-        collectionView.reloadData()
-        
-    }
+
     
     private func setupMainView () {
         
@@ -181,6 +186,10 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         case .CityAndTemperatureCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityAndTemperatureCollectionViewCell", for: indexPath) as? CityAndTemperatureCollectionViewCell else {return UICollectionViewCell()}
             
             cell.settingButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+            
+            guard let info = lastRespons?.currentWeather else{ return cell}
+            
+            cell.weatherCondition.text = info.condition.weatherText
             
             cell.nameOfCity.text = cells[index].nameOfSetting
             cell.temperature.text = cells[index].value
