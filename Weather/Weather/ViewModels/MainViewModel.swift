@@ -7,8 +7,13 @@
 
 import Foundation
 import RxSwift
+import UIKit
 
 class MainViewModel {
+    
+    
+    
+    private let apiWeather = ApiWeather()
     
     private let adapter = SettingAdapter()
     
@@ -42,6 +47,9 @@ class MainViewModel {
     ]
     
     func updateValues ()  {
+        
+        apiWeather.delegate = self
+        apiWeather.makeCurrentWeather()
         
         guard let info = lastRespons?.currentWeather else{ return }
         guard let location = lastRespons?.currentLocation else { return }
@@ -93,6 +101,26 @@ class MainViewModel {
             }
         }
 
+}
+
+extension MainViewModel: WeatherAPIDelegate {
     
+    func gotRealTimeWeather(respons: RealTimeWeatherRespons) {
+        
+        lastRespons = respons
+        updateValues()
+        
+    }
+    
+    func gotError(description: String) {
+        
+        let alert = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        let main = MainViewController()
+        main.present(alert,animated: true)
+        
+    }
+
     
 }
