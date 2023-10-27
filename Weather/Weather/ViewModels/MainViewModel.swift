@@ -8,10 +8,9 @@
 import Foundation
 import RxSwift
 import UIKit
+import RxRelay
 
 class MainViewModel {
-    
-    
     
     private let apiWeather = ApiWeather()
     
@@ -26,6 +25,10 @@ class MainViewModel {
                 cellsForHoursAndTemperatureCell = []
             }
         }
+    
+    let cellsRelay = BehaviorRelay<[MainCollectionViewModel]>(value: [])
+    
+    
     
     private var cells: [MainCollectionViewModel] = [
         
@@ -74,6 +77,8 @@ class MainViewModel {
             
         ]
         
+        cellsRelay.accept(self.cells)
+        
         updateValuesForHoursAndTemperatureCell ()
         
     }
@@ -97,6 +102,7 @@ class MainViewModel {
                         }
                         
                     }
+                    
                 }
             }
         }

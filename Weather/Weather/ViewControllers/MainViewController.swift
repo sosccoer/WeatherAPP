@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+
 
 class MainViewController: UIViewController  {
     
@@ -13,17 +15,18 @@ class MainViewController: UIViewController  {
     
     @IBOutlet weak var weatherImage: UIImageView!
     
-    var viewModel: MainViewModel!
+    var viewModel = MainViewModel()
+    var disposedBag = DisposeBag()
         
-    var lastRespons: RealTimeWeatherRespons? {
-            willSet {
-                cellsForHoursAndTemperatureCell = []
-            }
-        }
+//    var lastRespons: RealTimeWeatherRespons? {
+//            willSet {
+//                cellsForHoursAndTemperatureCell = []
+//            }
+//        }
     
     let refreshControl = UIRefreshControl()
     
-    var cellsForHoursAndTemperatureCell: [CelsiumAndHoursModel] = []
+//    var cellsForHoursAndTemperatureCell: [CelsiumAndHoursModel] = []
         
     private let settings = Settings()
     
@@ -60,6 +63,13 @@ class MainViewController: UIViewController  {
     }
     
     func updateValues ()  {
+        
+        viewModel.cellsRelay.asObservable().subscribe(onNext: { [weak self] cells in
+            
+            self?.cells = cells
+            
+        })
+        .disposed(by: disposedBag)
         
         viewModel.updateValues()
         
@@ -134,9 +144,9 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             
             cell.settingButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
             
-            guard let info = lastRespons?.currentWeather else{ return cell}
+//            guard let info = lastRespons?.currentWeather else{ return cell}
             
-            cell.weatherCondition.text = info.condition.weatherText
+//            cell.weatherCondition.text = info.condition.weatherText
             
             cell.nameOfCity.text = cells[index].nameOfSetting
             cell.temperature.text = cells[index].value
@@ -146,7 +156,7 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         case .CelsiumAndHoursCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ForHoursAndCelsiumCellsCollectionViewCell", for: indexPath) as? ForHoursAndCelsiumCellsCollectionViewCell else {return UICollectionViewCell()}
             cell.layer.cornerRadius = 20
             cell.backgroundColor = transparentColor
-            cell.cells = self.cellsForHoursAndTemperatureCell
+//            cell.cells = self.cellsForHoursAndTemperatureCell
             
             cell.collectionView.reloadData()
             
