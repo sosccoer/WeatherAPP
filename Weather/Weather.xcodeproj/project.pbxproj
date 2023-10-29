@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D156F922AEF028300CDEB38 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D156F912AEF028300CDEB38 /* MainViewModel.swift */; };
 		7D38CD8E2AC429EE00EB10A0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7D38CD8D2AC429EE00EB10A0 /* Alamofire */; };
 		7D38CD902AC42A3300EB10A0 /* RealTimeWeatherRespons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38CD8F2AC42A3300EB10A0 /* RealTimeWeatherRespons.swift */; };
 		7D38CD922AC438D100EB10A0 /* ApiWeather .swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38CD912AC438D100EB10A0 /* ApiWeather .swift */; };
@@ -22,7 +23,6 @@
 		7D38CDE92AC88E5A00EB10A0 /* MainCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38CDE82AC88E5A00EB10A0 /* MainCollectionViewModel.swift */; };
 		7D38CDF12AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38CDEF2AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.swift */; };
 		7D38CDF22AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D38CDF02AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.xib */; };
-		7D7AC8E22AEDC0CC0018AA24 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AC8E12AEDC0CC0018AA24 /* MainViewModel.swift */; };
 		7D7AC8E52AEEE54E0018AA24 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 7D7AC8E42AEEE54E0018AA24 /* RxBlocking */; };
 		7D7AC8E72AEEE54E0018AA24 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7D7AC8E62AEEE54E0018AA24 /* RxBlocking-Dynamic */; };
 		7D7AC8E92AEEE54E0018AA24 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7D7AC8E82AEEE54E0018AA24 /* RxCocoa */; };
@@ -51,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D156F912AEF028300CDEB38 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7D38CD8F2AC42A3300EB10A0 /* RealTimeWeatherRespons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeWeatherRespons.swift; sourceTree = "<group>"; };
 		7D38CD912AC438D100EB10A0 /* ApiWeather .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiWeather .swift"; sourceTree = "<group>"; };
 		7D38CD972AC494A100EB10A0 /* Weather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		7D38CDE82AC88E5A00EB10A0 /* MainCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewModel.swift; sourceTree = "<group>"; };
 		7D38CDEF2AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForHoursAndCelsiumCellsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7D38CDF02AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForHoursAndCelsiumCellsCollectionViewCell.xib; sourceTree = "<group>"; };
-		7D7AC8E12AEDC0CC0018AA24 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = ../../../../../Documents/MainViewModel.swift; sourceTree = "<group>"; };
 		7D959E5F2ACC3F8D00FA66DE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7D959E602ACC3F8D00FA66DE /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		7D959E652ACC419500FA66DE /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		7D7AC8E02AEDC0BB0018AA24 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				7D7AC8E12AEDC0CC0018AA24 /* MainViewModel.swift */,
+				7D156F912AEF028300CDEB38 /* MainViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -361,13 +361,13 @@
 				7D959E762AD44E0700FA66DE /* CelsiumAndHoursModel.swift in Sources */,
 				7D959E672ACC419500FA66DE /* SettingTableViewCell.swift in Sources */,
 				7DB4CE342AC1DA16001EBBC9 /* WeatherLocation .swift in Sources */,
+				7D156F922AEF028300CDEB38 /* MainViewModel.swift in Sources */,
 				7D959E6A2ACC90B400FA66DE /* SettingsType.swift in Sources */,
 				7D38CDD52AC7751100EB10A0 /* CelsiumAndHoursCollectionViewCell.swift in Sources */,
 				7DB4CE222AC1D079001EBBC9 /* SceneDelegate.swift in Sources */,
 				7D959E712ACCC2CE00FA66DE /* CityAndTemperatureCollectionViewCell.swift in Sources */,
 				7D38CD9B2AC4951900EB10A0 /* MainViewController.swift in Sources */,
 				7D38CD922AC438D100EB10A0 /* ApiWeather .swift in Sources */,
-				7D7AC8E22AEDC0CC0018AA24 /* MainViewModel.swift in Sources */,
 				7DB4CE362AC1DA2A001EBBC9 /* CurrentWeather .swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
