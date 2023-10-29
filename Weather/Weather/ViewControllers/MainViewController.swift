@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import RxSwift
-
 
 class MainViewController: UIViewController  {
     
@@ -15,67 +13,32 @@ class MainViewController: UIViewController  {
     
     @IBOutlet weak var weatherImage: UIImageView!
     
-    var viewModel = MainViewModel()
-    var disposedBag = DisposeBag()
-        
-//    var lastRespons: RealTimeWeatherRespons? {
-//            willSet {
-//                cellsForHoursAndTemperatureCell = []
-//            }
-//        }
-    
     let refreshControl = UIRefreshControl()
     
-//    var cellsForHoursAndTemperatureCell: [CelsiumAndHoursModel] = []
-        
-    private let settings = Settings()
+    private var cells: [MainCollectionViewModel] = []
     
-    private var cells: [MainCollectionViewModel] = [
-        
-        MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell,nameOfSetting: "",value: "" ),
-        
-        MainCollectionViewModel(type: .CelsiumAndHoursCollectionViewCell,nameOfSetting: "" ,value: ""),
-        
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " asd ",value: "fsfsd"),
-        
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: "это четвертая  ",value: "4"),
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
-        
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
-        
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
-        
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
-        
-    ]
+    var cellsForHoursAndTemperatureCell: [CelsiumAndHoursModel] = []
+    
+    let viewModel = MainViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.makeWeather()
+        
         refreshData()
         
-        setupMainView()
+        self.cells = viewModel.cells
+        self.cellsForHoursAndTemperatureCell = viewModel.cellsForHoursAndTemperatureCell
         
-        updateValues()
+        setupMainView()
         
         setupCollectionView ()
         
     }
     
-    func updateValues ()  {
-        
-        viewModel.cellsRelay.asObservable().subscribe(onNext: { [weak self] cells in
-            
-            self?.cells = cells
-            
-        })
-        .disposed(by: disposedBag)
-        
-        viewModel.updateValues()
-        
-        collectionView.reloadData()
-       
-    }
+    
+    
     
     private func setupMainView () {
         
@@ -97,19 +60,24 @@ class MainViewController: UIViewController  {
     
     @objc private func refreshData() {
         
-        updateValues()
+        viewModel.makeWeather()
+        
+        self.cells = viewModel.cells
+        self.cellsForHoursAndTemperatureCell = viewModel.cellsForHoursAndTemperatureCell
+        collectionView.reloadData()
+        
         collectionView.reloadData()
         refreshControl.endRefreshing()
         
     }
     
-    @objc func buttonTapped(_ sender: UIButton) {
-        
-        let destination = SettingsViewController()
-        destination.settings = settings
-        present(destination,animated: true)
-        
-    }
+    //    @objc func buttonTapped(_ sender: UIButton) {
+    //
+    //        let destination = SettingsViewController()
+    //        destination.settings = settings
+    //        present(destination,animated: true)
+    //
+    //    }
     
     private func registerCells (){
         
@@ -142,11 +110,11 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             
         case .CityAndTemperatureCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityAndTemperatureCollectionViewCell", for: indexPath) as? CityAndTemperatureCollectionViewCell else {return UICollectionViewCell()}
             
-            cell.settingButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+            //            cell.settingButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
             
-//            guard let info = lastRespons?.currentWeather else{ return cell}
             
-//            cell.weatherCondition.text = info.condition.weatherText
+            
+            //            cell.weatherCondition.text = info.condition.weatherText
             
             cell.nameOfCity.text = cells[index].nameOfSetting
             cell.temperature.text = cells[index].value
@@ -156,7 +124,7 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         case .CelsiumAndHoursCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ForHoursAndCelsiumCellsCollectionViewCell", for: indexPath) as? ForHoursAndCelsiumCellsCollectionViewCell else {return UICollectionViewCell()}
             cell.layer.cornerRadius = 20
             cell.backgroundColor = transparentColor
-//            cell.cells = self.cellsForHoursAndTemperatureCell
+            cell.cells = self.cellsForHoursAndTemperatureCell
             
             cell.collectionView.reloadData()
             
@@ -205,3 +173,5 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
     
 }
+
+

@@ -22,12 +22,7 @@
 		7D38CDE92AC88E5A00EB10A0 /* MainCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38CDE82AC88E5A00EB10A0 /* MainCollectionViewModel.swift */; };
 		7D38CDF12AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38CDEF2AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.swift */; };
 		7D38CDF22AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D38CDF02AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.xib */; };
-		7D7AC8AE2AE5AA570018AA24 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 7D7AC8AD2AE5AA570018AA24 /* RxBlocking */; };
-		7D7AC8B02AE5AA570018AA24 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7D7AC8AF2AE5AA570018AA24 /* RxBlocking-Dynamic */; };
-		7D7AC8B22AE5AA570018AA24 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7D7AC8B12AE5AA570018AA24 /* RxCocoa */; };
-		7D7AC8B42AE5AA570018AA24 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7D7AC8B32AE5AA570018AA24 /* RxCocoa-Dynamic */; };
-		7D7AC8B62AE5AA570018AA24 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 7D7AC8B52AE5AA570018AA24 /* RxRelay */; };
-		7D7AC8B92AE5B06B0018AA24 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AC8B82AE5B06B0018AA24 /* MainViewModel.swift */; };
+		7D7AC8E22AEDC0CC0018AA24 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AC8E12AEDC0CC0018AA24 /* MainViewModel.swift */; };
 		7D959E612ACC3F8D00FA66DE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D959E5F2ACC3F8D00FA66DE /* SettingsViewController.swift */; };
 		7D959E622ACC3F8D00FA66DE /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D959E602ACC3F8D00FA66DE /* SettingsViewController.xib */; };
 		7D959E672ACC419500FA66DE /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D959E652ACC419500FA66DE /* SettingTableViewCell.swift */; };
@@ -64,7 +59,7 @@
 		7D38CDE82AC88E5A00EB10A0 /* MainCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewModel.swift; sourceTree = "<group>"; };
 		7D38CDEF2AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForHoursAndCelsiumCellsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7D38CDF02AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForHoursAndCelsiumCellsCollectionViewCell.xib; sourceTree = "<group>"; };
-		7D7AC8B82AE5B06B0018AA24 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		7D7AC8E12AEDC0CC0018AA24 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = ../../../../../Documents/MainViewModel.swift; sourceTree = "<group>"; };
 		7D959E5F2ACC3F8D00FA66DE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7D959E602ACC3F8D00FA66DE /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		7D959E652ACC419500FA66DE /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -95,12 +90,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D38CD8E2AC429EE00EB10A0 /* Alamofire in Frameworks */,
-				7D7AC8AE2AE5AA570018AA24 /* RxBlocking in Frameworks */,
-				7D7AC8B62AE5AA570018AA24 /* RxRelay in Frameworks */,
-				7D7AC8B22AE5AA570018AA24 /* RxCocoa in Frameworks */,
 				7D38CD962AC4906800EB10A0 /* Lottie in Frameworks */,
-				7D7AC8B42AE5AA570018AA24 /* RxCocoa-Dynamic in Frameworks */,
-				7D7AC8B02AE5AA570018AA24 /* RxBlocking-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,10 +146,10 @@
 			path = "ModelsForCells ";
 			sourceTree = "<group>";
 		};
-		7D7AC8B72AE5AAF20018AA24 /* ViewModels */ = {
+		7D7AC8E02AEDC0BB0018AA24 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				7D7AC8B82AE5B06B0018AA24 /* MainViewModel.swift */,
+				7D7AC8E12AEDC0CC0018AA24 /* MainViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -207,7 +197,7 @@
 		7DB4CE1E2AC1D079001EBBC9 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				7D7AC8B72AE5AAF20018AA24 /* ViewModels */,
+				7D7AC8E02AEDC0BB0018AA24 /* ViewModels */,
 				7D38CDE72AC88E3400EB10A0 /* ModelsForCells  */,
 				7D38CDA32AC4D0ED00EB10A0 /* Cells */,
 				7D38CD9E2AC4A95400EB10A0 /* Xib of ViewControllers  */,
@@ -272,11 +262,6 @@
 			packageProductDependencies = (
 				7D38CD8D2AC429EE00EB10A0 /* Alamofire */,
 				7D38CD952AC4906800EB10A0 /* Lottie */,
-				7D7AC8AD2AE5AA570018AA24 /* RxBlocking */,
-				7D7AC8AF2AE5AA570018AA24 /* RxBlocking-Dynamic */,
-				7D7AC8B12AE5AA570018AA24 /* RxCocoa */,
-				7D7AC8B32AE5AA570018AA24 /* RxCocoa-Dynamic */,
-				7D7AC8B52AE5AA570018AA24 /* RxRelay */,
 			);
 			productName = Weather;
 			productReference = 7DB4CE1C2AC1D079001EBBC9 /* Weather.app */;
@@ -309,7 +294,6 @@
 			packageReferences = (
 				7D38CD8C2AC429EE00EB10A0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				7D38CD942AC4906800EB10A0 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				7D7AC8AC2AE5AA570018AA24 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 7DB4CE1D2AC1D079001EBBC9 /* Products */;
 			projectDirPath = "";
@@ -367,7 +351,7 @@
 				7D959E712ACCC2CE00FA66DE /* CityAndTemperatureCollectionViewCell.swift in Sources */,
 				7D38CD9B2AC4951900EB10A0 /* MainViewController.swift in Sources */,
 				7D38CD922AC438D100EB10A0 /* ApiWeather .swift in Sources */,
-				7D7AC8B92AE5B06B0018AA24 /* MainViewModel.swift in Sources */,
+				7D7AC8E22AEDC0CC0018AA24 /* MainViewModel.swift in Sources */,
 				7DB4CE362AC1DA2A001EBBC9 /* CurrentWeather .swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,14 +595,6 @@
 				minimumVersion = 4.3.2;
 			};
 		};
-		7D7AC8AC2AE5AA570018AA24 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = exactVersion;
-				version = 6.5.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -631,31 +607,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7D38CD942AC4906800EB10A0 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
-		};
-		7D7AC8AD2AE5AA570018AA24 /* RxBlocking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7D7AC8AC2AE5AA570018AA24 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxBlocking;
-		};
-		7D7AC8AF2AE5AA570018AA24 /* RxBlocking-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7D7AC8AC2AE5AA570018AA24 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxBlocking-Dynamic";
-		};
-		7D7AC8B12AE5AA570018AA24 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7D7AC8AC2AE5AA570018AA24 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		7D7AC8B32AE5AA570018AA24 /* RxCocoa-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7D7AC8AC2AE5AA570018AA24 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxCocoa-Dynamic";
-		};
-		7D7AC8B52AE5AA570018AA24 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7D7AC8AC2AE5AA570018AA24 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
