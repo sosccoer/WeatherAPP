@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class MainViewController: UIViewController  {
     
@@ -15,21 +16,36 @@ class MainViewController: UIViewController  {
     
     let refreshControl = UIRefreshControl()
     
-    private var cells: [MainCollectionViewModel] = []
+    private var cells: [MainCollectionViewModel] = [MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell,nameOfSetting: "",value: "" ),
+                                                    
+                                                    MainCollectionViewModel(type: .CelsiumAndHoursCollectionViewCell,nameOfSetting: "" ,value: ""),
+                                                    
+                                                    MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " asd ",value: "fsfsd"),
+                                                    
+                                                    MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: "это четвертая  ",value: "4"),
+                                                    MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
+                                                    
+                                                    MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
+                                                    
+                                                    MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
+                                                    
+                                                    MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
+                                                    ]
     
     var cellsForHoursAndTemperatureCell: [CelsiumAndHoursModel] = []
     
-    let viewModel = MainViewModel()
+    private let viewModel = MainViewModel()
+    
+    private let disposedBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.makeWeather()
-        
+                
         refreshData()
         
-        self.cells = viewModel.cells
-        self.cellsForHoursAndTemperatureCell = viewModel.cellsForHoursAndTemperatureCell
+        bindViewModel ()
         
         setupMainView()
         
@@ -37,7 +53,17 @@ class MainViewController: UIViewController  {
         
     }
     
-    
+    private func bindViewModel () {
+        
+        viewModel.mainCellsObservable.subscribe(onNext: { [weak self] cells in
+            
+            self?.cells = cells
+            self!.collectionView.reloadData()
+            
+        })
+        .disposed(by: disposedBag)
+        
+    }
     
     
     private func setupMainView () {
@@ -62,11 +88,9 @@ class MainViewController: UIViewController  {
         
         viewModel.makeWeather()
         
-        self.cells = viewModel.cells
-        self.cellsForHoursAndTemperatureCell = viewModel.cellsForHoursAndTemperatureCell
+        bindViewModel()
         collectionView.reloadData()
         
-        collectionView.reloadData()
         refreshControl.endRefreshing()
         
     }

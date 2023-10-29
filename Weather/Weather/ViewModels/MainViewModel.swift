@@ -12,8 +12,13 @@ import RxSwift
 
 class MainViewModel {
     
-    let mainCellsSubject = PublishSubject<MainCollectionViewModel>()
-    let forHoursAndTemperatureCellsSubject = PublishSubject<CelsiumAndHoursModel>()
+    private let mainCellsSubject = PublishSubject<[MainCollectionViewModel]>()
+    
+    let mainCellsObservable: Observable<[MainCollectionViewModel]>
+
+        init() {
+            mainCellsObservable = mainCellsSubject.asObservable()
+        }
     
     var lastRespons: RealTimeWeatherRespons? {
         willSet {
@@ -81,7 +86,7 @@ class MainViewModel {
             
         ]
         
-//        mainCellsSubject.on(self.cells)
+        mainCellsSubject.onNext(self.cells)
         
         updateValuesForHoursAndTemperatureCell ()
         
@@ -90,8 +95,6 @@ class MainViewModel {
     func updateValuesForHoursAndTemperatureCell () {
         
         guard let forecast = lastRespons?.forecastWeather else { return }
-        
-        //        self.cellsForHoursAndTemperatureCell
         
         for i in 0...23 {
             // Используйте один и тот же индекс при вызове методов
@@ -106,7 +109,6 @@ class MainViewModel {
                     self?.cellsForHoursAndTemperatureCell.sort {
                         $0.time < $1.time
                     }
-                    //                        self?.collectionView.reloadData()
                 }
             }
         }
@@ -120,7 +122,6 @@ extension MainViewModel: WeatherAPIDelegate {
     func gotRealTimeWeather(respons: RealTimeWeatherRespons) {
         
         lastRespons = respons
-//        updateValues()
         
     }
     
