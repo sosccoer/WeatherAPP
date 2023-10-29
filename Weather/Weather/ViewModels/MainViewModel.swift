@@ -13,11 +13,14 @@ import RxSwift
 class MainViewModel {
     
     private let mainCellsSubject = PublishSubject<[MainCollectionViewModel]>()
+    private let hoursAndTemperatureCellSubject = PublishSubject<[CelsiumAndHoursModel]>()
     
     let mainCellsObservable: Observable<[MainCollectionViewModel]>
+    let hoursAndTemperatureObservable: Observable<[CelsiumAndHoursModel]>
 
         init() {
             mainCellsObservable = mainCellsSubject.asObservable()
+            hoursAndTemperatureObservable = hoursAndTemperatureCellSubject.asObservable()
         }
     
     var lastRespons: RealTimeWeatherRespons? {
@@ -112,6 +115,8 @@ class MainViewModel {
                 }
             }
         }
+        
+        hoursAndTemperatureCellSubject.onNext(self.cellsForHoursAndTemperatureCell)
     }
     
     

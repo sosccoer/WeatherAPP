@@ -47,6 +47,8 @@ class MainViewController: UIViewController  {
         
         bindViewModel ()
         
+        bindViewModelForHoursAndTemperature()
+        
         setupMainView()
         
         setupCollectionView ()
@@ -58,10 +60,21 @@ class MainViewController: UIViewController  {
         viewModel.mainCellsObservable.subscribe(onNext: { [weak self] cells in
             
             self?.cells = cells
-            self!.collectionView.reloadData()
+            self?.collectionView.reloadData()
             
         })
         .disposed(by: disposedBag)
+        
+    }
+    
+    private func bindViewModelForHoursAndTemperature() {
+        
+        viewModel.hoursAndTemperatureObservable.subscribe(onNext: { [weak self] cells in
+            
+            self?.cellsForHoursAndTemperatureCell = cells
+            self?.collectionView.reloadData()
+            
+        }).disposed(by: disposedBag)
         
     }
     
@@ -89,6 +102,7 @@ class MainViewController: UIViewController  {
         viewModel.makeWeather()
         
         bindViewModel()
+        
         collectionView.reloadData()
         
         refreshControl.endRefreshing()

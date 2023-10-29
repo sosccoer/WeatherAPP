@@ -6,10 +6,15 @@
 //
 
 import UIKit
+import RxSwift
 
 class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    private let viewModel = MainViewModel()
+    
+    private let disposedBag = DisposeBag()
     
     var cells: [CelsiumAndHoursModel] = [
         
@@ -45,6 +50,8 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
         
         setupCollectionView ()
     }
+    
+    
     
     private func setupCollectionView () {
         
