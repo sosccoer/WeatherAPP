@@ -16,6 +16,8 @@ class MainViewController: UIViewController  {
     
     let refreshControl = UIRefreshControl()
     
+    private let settings = Settings()
+    
     private var cells: [MainCollectionViewModel] = [MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell,nameOfSetting: "",value: "" ),
                                                     
                                                     MainCollectionViewModel(type: .CelsiumAndHoursCollectionViewCell,nameOfSetting: "" ,value: ""),
@@ -102,6 +104,7 @@ class MainViewController: UIViewController  {
         viewModel.makeWeather()
         
         bindViewModel()
+        bindViewModelForHoursAndTemperature()
         
         collectionView.reloadData()
         
@@ -109,13 +112,13 @@ class MainViewController: UIViewController  {
         
     }
     
-    //    @objc func buttonTapped(_ sender: UIButton) {
-    //
-    //        let destination = SettingsViewController()
-    //        destination.settings = settings
-    //        present(destination,animated: true)
-    //
-    //    }
+        @objc func buttonTapped(_ sender: UIButton) {
+    
+            let destination = SettingsViewController()
+            destination.settings = settings
+            present(destination,animated: true)
+    
+        }
     
     private func registerCells (){
         
@@ -148,7 +151,7 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             
         case .CityAndTemperatureCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityAndTemperatureCollectionViewCell", for: indexPath) as? CityAndTemperatureCollectionViewCell else {return UICollectionViewCell()}
             
-            //            cell.settingButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+                        cell.settingButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
             
             
             
