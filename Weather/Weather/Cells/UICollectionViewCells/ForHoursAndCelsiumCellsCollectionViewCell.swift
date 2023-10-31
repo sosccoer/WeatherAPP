@@ -18,8 +18,8 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
     
     var cells: [CelsiumAndHoursModel] = [
         
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "12", temperature: "", image: UIImage()),
+        CelsiumAndHoursModel(time: "12", temperature: "", image: UIImage()),
         CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
         CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
         CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
@@ -43,15 +43,30 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
         CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
         CelsiumAndHoursModel(time: "", temperature: "", image: UIImage())
         
-    ]
+    ]{
+        didSet {
+            print(cells)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        viewModel.makeWeather()
+        bindViewModelForHoursAndTemperature()
         setupCollectionView ()
+        
     }
     
-    
+     func bindViewModelForHoursAndTemperature() {
+        
+        viewModel.hoursAndTemperatureObservable.subscribe(onNext: { [weak self] cells in
+            
+            self?.cells = cells
+            self?.collectionView.reloadData()
+            
+        }).disposed(by: disposedBag)
+        
+    }
     
     private func setupCollectionView () {
         

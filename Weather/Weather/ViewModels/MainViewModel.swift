@@ -17,19 +17,21 @@ class MainViewModel {
     
     let mainCellsObservable: Observable<[MainCollectionViewModel]>
     let hoursAndTemperatureObservable: Observable<[CelsiumAndHoursModel]>
-
-        init() {
-            mainCellsObservable = mainCellsSubject.asObservable()
-            hoursAndTemperatureObservable = hoursAndTemperatureCellSubject.asObservable()
-        }
+    
+    init() {
+        mainCellsObservable = mainCellsSubject.asObservable()
+        hoursAndTemperatureObservable = hoursAndTemperatureCellSubject.asObservable()
+    }
     
     var lastRespons: RealTimeWeatherRespons? {
         willSet {
             cellsForHoursAndTemperatureCell = []
         }
+        didSet {
+            updateValues()
+            updateValuesForHoursAndTemperatureCell()
+        }
     }
-    
-    var cellsForHoursAndTemperatureCell: [CelsiumAndHoursModel] = []
     
     private let adapter = SettingAdapter()
     
@@ -37,30 +39,18 @@ class MainViewModel {
     
     private let apiWeather = ApiWeather()
     
-    var cells: [MainCollectionViewModel] = [
-        
-        MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell,nameOfSetting: "",value: "" ),
-        
-        MainCollectionViewModel(type: .CelsiumAndHoursCollectionViewCell,nameOfSetting: "" ,value: ""),
-        
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " asd ",value: "fsfsd"),
-        
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: "это четвертая  ",value: "4"),
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
-        
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
-        
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
-        
-        MainCollectionViewModel(type: .ForSquareTableViewCollectionViewCell,nameOfSetting: " ",value: ""),
-        
-    ]
+    var cells: [MainCollectionViewModel] = []
+    
+    var cellsForHoursAndTemperatureCell: [CelsiumAndHoursModel] = []{
+        willSet {
+            cellsForHoursAndTemperatureCell = []
+        }
+    }
     
     func makeWeather () {
         
         apiWeather.delegate = self
         apiWeather.makeCurrentWeather()
-        updateValues()
         
     }
     
@@ -91,34 +81,35 @@ class MainViewModel {
         
         mainCellsSubject.onNext(self.cells)
         
-        updateValuesForHoursAndTemperatureCell ()
+        updateValuesForHoursAndTemperatureCell()
         
     }
     
-    func updateValuesForHoursAndTemperatureCell () {
-        
+    func updateValuesForHoursAndTemperatureCell() {
         guard let forecast = lastRespons?.forecastWeather else { return }
         
-        for i in 0...23 {
-            // Используйте один и тот же индекс при вызове методов
-            let time = adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: i)
-            let temperature = adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: i)
+        let dispatchGroup = DispatchGroup()
+        
+        let celsiumAndHoursModels = (0...23).map { index in
+            let time = adapter.getTimeForHoursAndTemperatureCell(for: forecast, index: index)
+            let temperature = adapter.getTemperatureForHoursAndTemperatureCell(for: forecast, with: settings, index: index)
             
-            adapter.getPictureAboutWeather(for: forecast, index: i) { [weak self] image in
-                let celsiumAndHoursModel = CelsiumAndHoursModel(time: time, temperature: temperature, image: image)
-                self?.cellsForHoursAndTemperatureCell.append(celsiumAndHoursModel)
-                
-                DispatchQueue.main.async { [weak self] in
-                    self?.cellsForHoursAndTemperatureCell.sort {
-                        $0.time < $1.time
-                    }
-                }
+            var image = UIImage()
+            
+            dispatchGroup.enter()
+            adapter.getPictureAboutWeather(for: forecast, index: index) { fetchedImage in
+                image = fetchedImage
+                dispatchGroup.leave()
             }
+            
+            dispatchGroup.wait()
+            
+            return CelsiumAndHoursModel(time: time, temperature: temperature, image: image)
         }
         
-        hoursAndTemperatureCellSubject.onNext(self.cellsForHoursAndTemperatureCell)
+        cellsForHoursAndTemperatureCell = celsiumAndHoursModels.sorted { $0.time < $1.time }
+        hoursAndTemperatureCellSubject.onNext(cellsForHoursAndTemperatureCell)
     }
-    
     
 }
 
