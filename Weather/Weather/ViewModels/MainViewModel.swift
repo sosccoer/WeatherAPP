@@ -30,12 +30,13 @@ class MainViewModel {
         didSet {
             updateValues()
             updateValuesForHoursAndTemperatureCell()
+
         }
     }
     
     private let adapter = SettingAdapter()
     
-    private let settings = Settings()
+    var settings = Settings()
     
     private let apiWeather = ApiWeather()
     
@@ -81,7 +82,6 @@ class MainViewModel {
         
         mainCellsSubject.onNext(self.cells)
         
-        updateValuesForHoursAndTemperatureCell()
         
     }
     

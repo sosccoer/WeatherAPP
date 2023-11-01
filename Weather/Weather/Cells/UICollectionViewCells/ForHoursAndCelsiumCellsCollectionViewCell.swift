@@ -14,7 +14,15 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
     
     let mainViewController = MainViewController()
     
-    private var viewModel: MainViewModel? = nil
+    var viewModel: MainViewModel! = nil {
+        
+        didSet {
+            
+            bindViewModelForHoursAndTemperature()
+            
+        }
+        
+    }
     
     private let disposedBag = DisposeBag()
     
@@ -45,19 +53,13 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
         CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
         CelsiumAndHoursModel(time: "", temperature: "", image: UIImage())
         
-    ]{
-        didSet {
-            print(cells)
-        }
-    }
+    ]
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        viewModel = mainViewController.viewModel
-        
-        viewModel?.makeWeather()
-        bindViewModelForHoursAndTemperature()
+//        viewModel?.makeWeather()
+//        bindViewModelForHoursAndTemperature()
         setupCollectionView ()
         
     }

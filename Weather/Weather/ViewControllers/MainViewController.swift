@@ -85,6 +85,7 @@ class MainViewController: UIViewController  {
         
         let destination = SettingsViewController()
         destination.settings = settings
+        viewModel.settings = settings
         present(destination,animated: true)
         
     }
@@ -131,6 +132,8 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             
         case .CelsiumAndHoursCollectionViewCell : guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ForHoursAndCelsiumCellsCollectionViewCell", for: indexPath) as? ForHoursAndCelsiumCellsCollectionViewCell else {return UICollectionViewCell()}
             
+            
+            cell.viewModel = self.viewModel
             cell.layer.cornerRadius = 20
             cell.backgroundColor = transparentColor
             

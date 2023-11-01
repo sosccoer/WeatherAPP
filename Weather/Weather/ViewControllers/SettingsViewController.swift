@@ -8,9 +8,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    
-    let test = Settings()
-    
+        
     weak var settings: Settings!
     
     @IBOutlet weak var tableView: UITableView!
