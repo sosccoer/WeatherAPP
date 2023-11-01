@@ -12,7 +12,9 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private let viewModel = MainViewModel()
+    let mainViewController = MainViewController()
+    
+    private var viewModel: MainViewModel? = nil
     
     private let disposedBag = DisposeBag()
     
@@ -51,7 +53,10 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        viewModel.makeWeather()
+        
+        viewModel = mainViewController.viewModel
+        
+        viewModel?.makeWeather()
         bindViewModelForHoursAndTemperature()
         setupCollectionView ()
         
@@ -59,7 +64,7 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
     
      func bindViewModelForHoursAndTemperature() {
         
-        viewModel.hoursAndTemperatureObservable.subscribe(onNext: { [weak self] cells in
+         viewModel?.hoursAndTemperatureObservable.subscribe(onNext: { [weak self] cells in
             
             self?.cells = cells
             self?.collectionView.reloadData()

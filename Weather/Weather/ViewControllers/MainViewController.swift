@@ -19,10 +19,8 @@ class MainViewController: UIViewController  {
     private let settings = Settings()
     
     private var cells: [MainCollectionViewModel] = []
-    
-    let test = ForHoursAndCelsiumCellsCollectionViewCell()
-    
-    private let viewModel = MainViewModel()
+        
+     let viewModel = MainViewModel()
     
     private let disposedBag = DisposeBag()
     
@@ -50,7 +48,6 @@ class MainViewController: UIViewController  {
             
         }).disposed(by: disposedBag)
         
-        test.bindViewModelForHoursAndTemperature()
         
     }
     
