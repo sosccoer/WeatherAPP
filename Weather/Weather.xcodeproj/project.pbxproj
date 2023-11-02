@@ -39,6 +39,8 @@
 		7D959E722ACCC2CE00FA66DE /* CityAndTemperatureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D959E702ACCC2CE00FA66DE /* CityAndTemperatureCollectionViewCell.xib */; };
 		7D959E742AD35DE300FA66DE /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D959E732AD35DE300FA66DE /* ForecastWeather.swift */; };
 		7D959E762AD44E0700FA66DE /* CelsiumAndHoursModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D959E752AD44E0700FA66DE /* CelsiumAndHoursModel.swift */; };
+		7D9695BE2AF4415F001C9AC9 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 7D9695BD2AF4415F001C9AC9 /* Realm */; };
+		7D9695C02AF4415F001C9AC9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7D9695BF2AF4415F001C9AC9 /* RealmSwift */; };
 		7DB4CE202AC1D079001EBBC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4CE1F2AC1D079001EBBC9 /* AppDelegate.swift */; };
 		7DB4CE222AC1D079001EBBC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4CE212AC1D079001EBBC9 /* SceneDelegate.swift */; };
 		7DB4CE242AC1D079001EBBC9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4CE232AC1D079001EBBC9 /* SplashViewController.swift */; };
@@ -97,9 +99,11 @@
 				7D38CD8E2AC429EE00EB10A0 /* Alamofire in Frameworks */,
 				7D7AC8E52AEEE54E0018AA24 /* RxBlocking in Frameworks */,
 				7D7AC8ED2AEEE54E0018AA24 /* RxRelay in Frameworks */,
+				7D9695C02AF4415F001C9AC9 /* RealmSwift in Frameworks */,
 				7D7AC8E92AEEE54E0018AA24 /* RxCocoa in Frameworks */,
 				7D38CD962AC4906800EB10A0 /* Lottie in Frameworks */,
 				7D7AC8EB2AEEE54E0018AA24 /* RxCocoa-Dynamic in Frameworks */,
+				7D9695BE2AF4415F001C9AC9 /* Realm in Frameworks */,
 				7D7AC8E72AEEE54E0018AA24 /* RxBlocking-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +281,8 @@
 				7D7AC8E82AEEE54E0018AA24 /* RxCocoa */,
 				7D7AC8EA2AEEE54E0018AA24 /* RxCocoa-Dynamic */,
 				7D7AC8EC2AEEE54E0018AA24 /* RxRelay */,
+				7D9695BD2AF4415F001C9AC9 /* Realm */,
+				7D9695BF2AF4415F001C9AC9 /* RealmSwift */,
 			);
 			productName = Weather;
 			productReference = 7DB4CE1C2AC1D079001EBBC9 /* Weather.app */;
@@ -310,6 +316,7 @@
 				7D38CD8C2AC429EE00EB10A0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				7D38CD942AC4906800EB10A0 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				7D7AC8E32AEEE54E0018AA24 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				7D9695BC2AF4415F001C9AC9 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 7DB4CE1D2AC1D079001EBBC9 /* Products */;
 			projectDirPath = "";
@@ -619,6 +626,14 @@
 				version = 6.5.0;
 			};
 		};
+		7D9695BC2AF4415F001C9AC9 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -656,6 +671,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7D7AC8E32AEEE54E0018AA24 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
+		};
+		7D9695BD2AF4415F001C9AC9 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D9695BC2AF4415F001C9AC9 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		7D9695BF2AF4415F001C9AC9 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D9695BC2AF4415F001C9AC9 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
