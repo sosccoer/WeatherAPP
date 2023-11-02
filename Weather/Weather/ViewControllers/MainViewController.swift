@@ -123,7 +123,8 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             
             cell.settingButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
             
-            //            cell.weatherCondition.text = info.condition.weatherText
+            cell.weatherCondition.text = viewModel.lastRespons?.currentWeather.condition.weatherText
+//            info.condition.weatherText
             
             cell.nameOfCity.text = cells[index].nameOfSetting
             cell.temperature.text = cells[index].value
