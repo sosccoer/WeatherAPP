@@ -53,7 +53,11 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
         CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
         CelsiumAndHoursModel(time: "", temperature: "", image: UIImage())
         
-    ]
+    ]{
+        willSet {
+            cells = []
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
