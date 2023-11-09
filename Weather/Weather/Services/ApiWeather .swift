@@ -45,14 +45,14 @@ class ApiWeather {
                 return
             }
             
-            print("WeatherApiWorker: \(responseString)")
+//            print("WeatherApiWorker: \(responseString)")
             
             guard let responseModel = try? JSONDecoder().decode(RealTimeWeatherRespons.self, from: data) else {
                 print("WeatherApiWorker: Decode error")
                 return
             }
             
-            print("WeatherApiWorker Sucesfull: \(responseModel)")
+//            print("WeatherApiWorker Sucesfull: \(responseModel)")
             self.delegate?.gotRealTimeWeather(respons: responseModel)
             
         }

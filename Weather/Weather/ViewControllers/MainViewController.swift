@@ -7,6 +7,10 @@
 
 import UIKit
 import RxSwift
+import RealmSwift
+import CryptoKit
+
+
 
 class MainViewController: UIViewController  {
     
@@ -18,12 +22,18 @@ class MainViewController: UIViewController  {
     
     private let settings = Settings()
     
-    private var cells: [MainCollectionViewModel] = []
+    private var cells: [MainCollectionViewModel] = []{
+        didSet {
+            encodeCells()
+        }
+    }
         
      let viewModel = MainViewModel()
     
     private let disposedBag = DisposeBag()
     
+    var cellsData = Data()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +46,76 @@ class MainViewController: UIViewController  {
         setupMainView()
         
         setupCollectionView ()
+        
+    }
+    
+    private func encodeCells () {
+        
+        guard let realm = try? Realm() else {return}
+        
+        try? realm.write{
+            
+            realm.deleteAll()
+            
+        }
+        
+        var Data = Data()
+        
+        do {
+            let jsonData = try JSONEncoder().encode(cells)
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                if let data = jsonString.data(using: .utf8) {
+                    Data = data
+                }
+            }
+        } catch {
+            print("Ошибка при кодировании в JSON: \(error)")
+        }
+        
+        
+        writeToRealm(Data: Data)
+        
+        //////////////////////////////////////////////////////////////////////////////
+        
+        
+        
+        
+        
+//        do {
+//            if let data2 = Data1 {
+//                let decodedData = try JSONDecoder().decode([cellsRealm].self, from: data2)
+//                
+//                for item in decodedData {
+//                    print("Запись: \(item.field1), \(item.field2)")
+//                    // Здесь вы можете обрабатывать извлеченные данные
+//                }
+//            }
+//        } catch {
+//            print("Ошибка при декодировании данных: \(error)")
+//        }
+        
+        
+        
+    }
+    
+    func writeToRealm(Data: Data){
+        
+        guard let realm = try? Realm() else {return}
+        
+        let cellsRealm = MainCellsRealm()
+        
+        cellsRealm.mainCells = Data
+        cellsRealm.completed = true
+        
+        do {
+            
+                try realm.write {
+                realm.add(cellsRealm)
+                    
+            }
+        } catch {
+            print("Error: \(error)")
+        }
         
     }
     

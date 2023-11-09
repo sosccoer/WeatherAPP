@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct CelsiumAndHoursModel {
+struct CelsiumAndHoursModel  {
     
     let time: String
     let temperature: String

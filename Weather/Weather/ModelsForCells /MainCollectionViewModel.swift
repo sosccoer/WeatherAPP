@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-struct MainCollectionViewModel {
+struct MainCollectionViewModel:Codable {
     
     let type: TypeOfMainCollectionView
     let nameOfSetting: String?
     let value: String?
     
-    enum TypeOfMainCollectionView {
+    enum TypeOfMainCollectionView: Codable {
         
         case ForSquareTableViewCollectionViewCell
         case CelsiumAndHoursCollectionViewCell
