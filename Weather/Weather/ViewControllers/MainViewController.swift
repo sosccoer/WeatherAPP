@@ -24,7 +24,7 @@ class MainViewController: UIViewController  {
     
     private var cells: [MainCollectionViewModel] = []{
         didSet {
-            encodeCells()
+//            encodeCells()
         }
     }
         
@@ -46,6 +46,8 @@ class MainViewController: UIViewController  {
         setupMainView()
         
         setupCollectionView ()
+        
+        readRealm()
         
     }
     
@@ -95,6 +97,38 @@ class MainViewController: UIViewController  {
 //        }
         
         
+        
+    }
+    
+    func readRealm () {
+        
+        guard let realm = try? Realm() else {return}
+        
+//        let cellsRealm = MainCellsRealm()
+
+        let objects = realm.objects(MainCellsRealm.self)
+        
+        for object in objects {
+            
+            decodeRealmData(data: object.mainCells)
+            
+        }
+        
+    }
+    
+    private func decodeRealmData(data: Data) {
+        
+        do {
+            
+            
+            let cells = try? JSONDecoder().decode(MainCollectionViewModel.self, from: data)
+            
+            print("ВОТ ТАКИЕ ЯЧЕЙКИ ВЫШЛИ \(cells)")
+            
+            
+        }catch {
+            print(error)
+        }
         
     }
     
