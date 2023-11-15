@@ -47,7 +47,7 @@ class MainViewController: UIViewController  {
         
         setupCollectionView ()
         
-        readRealm()
+//        readRealm()
         
     }
     
@@ -120,13 +120,12 @@ class MainViewController: UIViewController  {
         
         do {
             
-            
-            let cells = try? JSONDecoder().decode(MainCollectionViewModel.self, from: data)
+            let cells = try JSONDecoder().decode([MainCollectionViewModel].self, from: data)
             
             print("ВОТ ТАКИЕ ЯЧЕЙКИ ВЫШЛИ \(cells)")
             
             
-        }catch {
+        } catch {
             print(error)
         }
         
