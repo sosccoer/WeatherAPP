@@ -24,7 +24,7 @@ class MainViewController: UIViewController  {
     
     private var cells: [MainCollectionViewModel] = []{
         didSet {
-//            encodeCells()
+            encodeCells()
         }
     }
         
@@ -37,7 +37,7 @@ class MainViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.makeWeather()
+        viewModel.makeWeather() 
         
         refreshData()
         
@@ -47,7 +47,7 @@ class MainViewController: UIViewController  {
         
         setupCollectionView ()
         
-//        readRealm()
+        readRealm()
         
     }
     
@@ -76,28 +76,7 @@ class MainViewController: UIViewController  {
         
         
         writeToRealm(Data: Data)
-        
-        //////////////////////////////////////////////////////////////////////////////
-        
-        
-        
-        
-        
-//        do {
-//            if let data2 = Data1 {
-//                let decodedData = try JSONDecoder().decode([cellsRealm].self, from: data2)
-//                
-//                for item in decodedData {
-//                    print("Запись: \(item.field1), \(item.field2)")
-//                    // Здесь вы можете обрабатывать извлеченные данные
-//                }
-//            }
-//        } catch {
-//            print("Ошибка при декодировании данных: \(error)")
-//        }
-        
-        
-        
+
     }
     
     func readRealm () {
@@ -124,6 +103,9 @@ class MainViewController: UIViewController  {
             
             print("ВОТ ТАКИЕ ЯЧЕЙКИ ВЫШЛИ \(cells)")
             
+            self.cells = cells
+            collectionView.reloadData()
+            
             
         } catch {
             print(error)
@@ -144,6 +126,7 @@ class MainViewController: UIViewController  {
             
                 try realm.write {
                 realm.add(cellsRealm)
+                    print("ВОТ ПО ЭТОМУ ПУТИ ИДЕТ СОХРАНЕНИЕ ",realm.configuration.fileURL)
                     
             }
         } catch {

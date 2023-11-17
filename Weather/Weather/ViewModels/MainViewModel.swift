@@ -97,7 +97,7 @@ class MainViewModel {
             var image = UIImage()
             
             dispatchGroup.enter()
-            adapter.getPictureAboutWeather(for: forecast, index: index) { fetchedImage in
+            adapter.getPictureAboutWeather(for: forecast, index: index) { (fetchedImage) in
                 image = fetchedImage
                 dispatchGroup.leave()
             }
