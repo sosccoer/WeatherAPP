@@ -101,7 +101,7 @@ class MainViewController: UIViewController  {
             
             let cells = try JSONDecoder().decode([MainCollectionViewModel].self, from: data)
             
-            print("ВОТ ТАКИЕ ЯЧЕЙКИ ВЫШЛИ \(cells)")
+//            print("ВОТ ТАКИЕ ЯЧЕЙКИ ВЫШЛИ \(cells)")
             
             self.cells = cells
             collectionView.reloadData()

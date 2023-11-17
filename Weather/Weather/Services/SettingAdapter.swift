@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class SettingAdapter {
     
@@ -15,18 +16,53 @@ class SettingAdapter {
     func getPictureAboutWeather(for info: ForecastWeather , index: Int, handler:@escaping ((UIImage) -> ())) {
         let stringUrl = "https:\(String(info.forecastDay[0].hour[index].WeatherCondiation.photoOfWeather))"
         
-        guard let URL = URL(string: stringUrl) else { return }
         
-        DispatchQueue.global(qos: .userInitiated).async{
-            do {
-                let data = try Data(contentsOf: URL)
-                if let image = UIImage(data: data) {
-                    handler(image)
-                }
-            } catch {
-                print("Произошла ошибка при загрузке изображения: \(error)")
+        
+        guard let URL = URL(string: stringUrl) else { handler(UIImage()); return}
+        
+        let imageView = UIImageView()
+        
+        imageView.kf.setImage(with: URL) { result in
+            
+            switch result {
+            case .success(let value):
+                print(value)
+            case .failure(let error):
+                print(error)
             }
+            
         }
+        
+        handler(imageView.image ?? UIImage())
+        
+        
+        
+        
+        
+        
+//        KingfisherManager.shared.retrieveImage(with: resources, completionHandler: handler) { result in
+//            
+//            switch result {
+//                    case .success(let value):
+//                        handler(value.image)
+//                    case .failure(let error):
+//                        print("Произошла ошибка при загрузке изображения: \(error)")
+//                    }
+//        }
+        
+        
+        
+        
+//        DispatchQueue.global(qos: .userInitiated).async{
+//            do {
+//                let data = try Data(contentsOf: URL)
+//                if let image = UIImage(data: data) {
+//                    handler(image)
+//                }
+//            } catch {
+//                print("Произошла ошибка при загрузке изображения: \(error)")
+//            }
+//        }
         
     }
     

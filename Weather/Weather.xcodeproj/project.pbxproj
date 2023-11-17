@@ -23,6 +23,7 @@
 		7D38CDE92AC88E5A00EB10A0 /* MainCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38CDE82AC88E5A00EB10A0 /* MainCollectionViewModel.swift */; };
 		7D38CDF12AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38CDEF2AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.swift */; };
 		7D38CDF22AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D38CDF02AC8A69400EB10A0 /* ForHoursAndCelsiumCellsCollectionViewCell.xib */; };
+		7D56C1C72B07AD100027E88A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7D56C1C62B07AD100027E88A /* Kingfisher */; };
 		7D7AC8E52AEEE54E0018AA24 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 7D7AC8E42AEEE54E0018AA24 /* RxBlocking */; };
 		7D7AC8E72AEEE54E0018AA24 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7D7AC8E62AEEE54E0018AA24 /* RxBlocking-Dynamic */; };
 		7D7AC8E92AEEE54E0018AA24 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7D7AC8E82AEEE54E0018AA24 /* RxCocoa */; };
@@ -102,6 +103,7 @@
 				7D7AC8E52AEEE54E0018AA24 /* RxBlocking in Frameworks */,
 				7D7AC8ED2AEEE54E0018AA24 /* RxRelay in Frameworks */,
 				7D9695C02AF4415F001C9AC9 /* RealmSwift in Frameworks */,
+				7D56C1C72B07AD100027E88A /* Kingfisher in Frameworks */,
 				7D7AC8E92AEEE54E0018AA24 /* RxCocoa in Frameworks */,
 				7D38CD962AC4906800EB10A0 /* Lottie in Frameworks */,
 				7D7AC8EB2AEEE54E0018AA24 /* RxCocoa-Dynamic in Frameworks */,
@@ -294,6 +296,7 @@
 				7D7AC8EC2AEEE54E0018AA24 /* RxRelay */,
 				7D9695BD2AF4415F001C9AC9 /* Realm */,
 				7D9695BF2AF4415F001C9AC9 /* RealmSwift */,
+				7D56C1C62B07AD100027E88A /* Kingfisher */,
 			);
 			productName = Weather;
 			productReference = 7DB4CE1C2AC1D079001EBBC9 /* Weather.app */;
@@ -328,6 +331,7 @@
 				7D38CD942AC4906800EB10A0 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				7D7AC8E32AEEE54E0018AA24 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				7D9695BC2AF4415F001C9AC9 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				7D56C1C52B07AD100027E88A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 7DB4CE1D2AC1D079001EBBC9 /* Products */;
 			projectDirPath = "";
@@ -630,6 +634,14 @@
 				minimumVersion = 4.3.2;
 			};
 		};
+		7D56C1C52B07AD100027E88A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.0;
+			};
+		};
 		7D7AC8E32AEEE54E0018AA24 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -658,6 +670,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7D38CD942AC4906800EB10A0 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		7D56C1C62B07AD100027E88A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D56C1C52B07AD100027E88A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		7D7AC8E42AEEE54E0018AA24 /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
