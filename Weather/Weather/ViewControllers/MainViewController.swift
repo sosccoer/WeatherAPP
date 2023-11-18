@@ -37,6 +37,10 @@ class MainViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        readRealm()
+        
+        setupCollectionView ()
+        
         viewModel.makeWeather() 
         
         refreshData()
@@ -44,10 +48,6 @@ class MainViewController: UIViewController  {
         bindViewModel ()
         
         setupMainView()
-        
-        setupCollectionView ()
-        
-        readRealm()
         
     }
     

@@ -15,55 +15,25 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
     let mainViewController = MainViewController()
     
     var viewModel: MainViewModel! = nil {
-        
         didSet {
-            
             bindViewModelForHoursAndTemperature()
-            
         }
-        
     }
     
     private let disposedBag = DisposeBag()
     
     var cells: [CelsiumAndHoursModel] = [
-        
-        CelsiumAndHoursModel(time: "12", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "12", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage()),
-        CelsiumAndHoursModel(time: "", temperature: "", image: UIImage())
-        
     ]{
         willSet {
             cells = []
         }
+        
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        viewModel?.makeWeather()
-//        bindViewModelForHoursAndTemperature()
+        bindViewModelForHoursAndTemperature()
         setupCollectionView ()
         
     }
@@ -73,10 +43,11 @@ class ForHoursAndCelsiumCellsCollectionViewCell: UICollectionViewCell {
          viewModel?.hoursAndTemperatureObservable.subscribe(onNext: { [weak self] cells in
             
             self?.cells = cells
-            self?.collectionView.reloadData()
+//            self?.collectionView.reloadData()
             
         }).disposed(by: disposedBag)
         
+         collectionView.reloadData()
     }
     
     private func setupCollectionView () {

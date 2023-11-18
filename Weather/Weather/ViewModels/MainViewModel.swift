@@ -39,9 +39,7 @@ class MainViewModel {
     var settings = Settings()
     
     private let apiWeather = ApiWeather()
-    
-    var cells: [MainCollectionViewModel] = []
-    
+        
     var cellsForHoursAndTemperatureCell: [CelsiumAndHoursModel] = []{
         willSet {
             cellsForHoursAndTemperatureCell = []
@@ -60,7 +58,7 @@ class MainViewModel {
         guard let info = lastRespons?.currentWeather else{ return }
         guard let location = lastRespons?.currentLocation else { return }
         
-        self.cells = [
+        let cells = [
             
             MainCollectionViewModel(type: .CityAndTemperatureCollectionViewCell,nameOfSetting: location.cityName ,value: adapter.getTemperature(for: info, with: settings)),
             
@@ -80,7 +78,7 @@ class MainViewModel {
             
         ]
         
-        mainCellsSubject.onNext(self.cells)
+        mainCellsSubject.onNext(cells)
         
         
     }

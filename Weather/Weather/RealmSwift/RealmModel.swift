@@ -12,6 +12,7 @@ class MainCellsRealm: Object {
     
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var mainCells = Data()
+    @objc dynamic var hoursAndTemperatureCell = Data()
     @objc dynamic var completed = Bool()
     
 }
