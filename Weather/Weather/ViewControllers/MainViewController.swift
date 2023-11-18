@@ -24,7 +24,7 @@ class MainViewController: UIViewController  {
     
     private var cells: [MainCollectionViewModel] = []{
         didSet {
-            encodeCells()
+            encodeCells(cells: cells)
         }
     }
         
@@ -51,90 +51,18 @@ class MainViewController: UIViewController  {
         
     }
     
-    private func encodeCells () {
+    private func readRealm() {
         
-        guard let realm = try? Realm() else {return}
-        
-        try? realm.write{
-            
-            realm.deleteAll()
-            
-        }
-        
-        var Data = Data()
-        
-        do {
-            let jsonData = try JSONEncoder().encode(cells)
-            if let jsonString = String(data: jsonData, encoding: .utf8) {
-                if let data = jsonString.data(using: .utf8) {
-                    Data = data
-                }
-            }
-        } catch {
-            print("Ошибка при кодировании в JSON: \(error)")
-        }
-        
-        
-        writeToRealm(Data: Data)
-
-    }
-    
-    func readRealm () {
-        
-        guard let realm = try? Realm() else {return}
-        
-//        let cellsRealm = MainCellsRealm()
-
-        let objects = realm.objects(MainCellsRealm.self)
-        
-        for object in objects {
-            
-            decodeRealmData(data: object.mainCells)
-            
-        }
+        viewModel.readRealm()
         
     }
     
-    private func decodeRealmData(data: Data) {
+    private func encodeCells(cells: [MainCollectionViewModel] ) {
         
-        do {
-            
-            let cells = try JSONDecoder().decode([MainCollectionViewModel].self, from: data)
-            
-//            print("ВОТ ТАКИЕ ЯЧЕЙКИ ВЫШЛИ \(cells)")
-            
-            self.cells = cells
-            collectionView.reloadData()
-            
-            
-        } catch {
-            print(error)
-        }
+        viewModel.cellsForRealm = cells
         
     }
-    
-    func writeToRealm(Data: Data){
         
-        guard let realm = try? Realm() else {return}
-        
-        let cellsRealm = MainCellsRealm()
-        
-        cellsRealm.mainCells = Data
-        cellsRealm.completed = true
-        
-        do {
-            
-                try realm.write {
-                realm.add(cellsRealm)
-                    print("ВОТ ПО ЭТОМУ ПУТИ ИДЕТ СОХРАНЕНИЕ ",realm.configuration.fileURL)
-                    
-            }
-        } catch {
-            print("Error: \(error)")
-        }
-        
-    }
-    
     private func bindViewModel () {
         
         viewModel.mainCellsObservable.subscribe(onNext: { [weak self] cells in
